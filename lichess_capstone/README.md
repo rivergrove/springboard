@@ -10,7 +10,7 @@ Lichess stores [monthly standard game files](https://database.lichess.org/), zip
 
 ## My Idea
 
-I would like to analyze the games for brilliant moves, defined as approximatly +2 on your eval, meaning the engine didn’t see it. I may choose to increase or decrease this eval depending on how many results I find. More detailed ideas include:
+I would like to analyze the games for brilliant moves, defined as approximately +2 on your eval, meaning the engine didn’t see it. I may choose to increase or decrease this eval depending on how many results I find. More detailed ideas include:
 - Find players who made the most brilliant moves
 - An example game (may reference the agadmator’s video as another example)
 - Brilliant moves by elo
@@ -23,7 +23,8 @@ I would like to analyze the games for brilliant moves, defined as approximatly +
 
 1. Successfully create a pipeline for 25-500 GB of data
 2. If possible update the pipeline dynamically, monthly with new data
-3. Visualize and analyze the data to extract meaningful and potentially surprising insights 
+3. Initially work with a small file, but eventually host the data on the cloud
+4. Visualize and analyze the data to extract meaningful and potentially surprising insights 
 
 
 ## What DE Skills are Highlighted?
@@ -32,6 +33,7 @@ I would like to analyze the games for brilliant moves, defined as approximatly +
 - Working with large datasets
 - Building pipelines, ideally dynamic ones
 - Extracting insights from data
+- Cloud data storage
 
 
 ## Output
