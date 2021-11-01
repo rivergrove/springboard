@@ -5,7 +5,7 @@ Springboard requires an open ended capstone project with the subject of my choos
 
 ## Data Source
 
-Lichess stores [monthly standard game files](https://database.lichess.org/), zipped, in a pgn format, ranging from 15 MB to 27 GB. Each record contains game level data, like who was black and who was white, and move level data like the move, AI evaluation, and time left on the clock. The data set can be anywhere between 10 GB to 500 GB depending on the scope I select. At a glance the data appears relatively challenging to parse; however, many others have successfully used this dataset before (e.g. [popularity and win rate of chess openings](https://github.com/Paul566/chessOpeningStats)), so I can learn from them, and cite them as inspiration for the work I do.
+Lichess stores [monthly standard game files](https://database.lichess.org/), zipped, in a pgn format, ranging from 15 MB to 27 GB. Each record contains game level data, like who was black and who was white, and move level data like the move, AI evaluation, and time left on the clock. The data set can be anywhere between 10 GB to 500 GB depending on the scope I select. At a glance the data appears relatively challenging to parse; however, many others have successfully used this dataset before (e.g. [popularity and win rate of chess openings](https://github.com/Paul566/chessOpeningStats)), so I can learn from them, and cite them as inspiration for the work I do. I will process the data via batch processing on a monthly time scale.
 
 
 ## My Idea
