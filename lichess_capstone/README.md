@@ -13,8 +13,7 @@ Lichess stores [monthly standard game files](https://database.lichess.org/), zip
 I would like to analyze the games for brilliant moves, defined as approximately +2 on your eval, meaning the engine didn’t see it. I may choose to increase or decrease this eval depending on how many results I find. More detailed ideas include:
 - Find players who made the most brilliant moves
 - An example game (may reference the agadmator’s video as another example)
-- Brilliant moves by elo
-- % of moves that are brilliant by elo
+- Games per brilliant moves by elo
 - Find the most brilliant move I’ve ever made
 - Find the game with the most brilliant moves
 
