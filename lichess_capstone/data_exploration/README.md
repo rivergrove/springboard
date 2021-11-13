@@ -1,8 +1,8 @@
 ### Insights from data exploration
 
-I changed the fundamental question set I am trying to answer. Before I was looking for questions around brilliant moves, defined as the computer eval increased in a player's favor by 2 or more after making a move. However, after looking at [an example game](https://lichess.org/0Hn3NKvX) I found that in these moments the players were not always making brilliant moves, the engine was just ajusting to the depth. The new question set I am trying to answer is about forced checkmates. Possible questions include:
+I changed the fundamental question set I am trying to answer. Before I was looking for questions around brilliant moves, defined as the computer eval increased in a player's favor by 2 or more after making a move. However, after looking at [an example game](https://lichess.org/0Hn3NKvX) I found that in these moments the players were not always making brilliant moves, the engine was just adjusting to the depth. The new question set I am trying to answer is about forced checkmates. Possible questions include:
 - Percent of checkmate in 1 that are found
-- Percent of checkamte in 1 that are found by elo
+- Percent of checkmate in 1 that are found by elo
 - Games where a player lost after checkmate in one. Highest elo example. 
 - Game with player with the highest elo who missed a checkmate in 1
 - My percent of checkmates in 1 that are found
