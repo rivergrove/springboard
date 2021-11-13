@@ -10,12 +10,14 @@ Lichess stores [monthly standard game files](https://database.lichess.org/), zip
 
 ## My Idea
 
-I would like to analyze the games for brilliant moves, defined as approximately +2 on your eval, meaning the engine didn’t see it. I may choose to increase or decrease this eval depending on how many results I find. More detailed ideas include:
-- Find players who made the most brilliant moves
-- An example game (may reference the agadmator’s video as another example)
-- Games per brilliant move by elo
-- Find the most brilliant move I’ve ever made
-- Find the game with the most brilliant moves
+I would like to analyze the games that contain one or more forced checkmate(s) in one move. I originally wanted to search for 'brilliant' moves, however this was not very interesting given the data. More detailed ideas include:
+- Percent of checkmate in 1 that are found
+- Percent of checkmate in 1 that are found by elo
+- Games where a player lost after checkmate in one. Highest elo example. 
+- Game with player with the highest elo who missed a checkmate in 1
+- My percent of checkmates in 1 that are found
+- Players with the most games and a perfect checkmate in 1 pct
+- Could try percent of checkmate in n that are found by elo, but this would be tricky.
 
 
 ## My Goals
@@ -37,4 +39,4 @@ I would like to analyze the games for brilliant moves, defined as approximately 
 
 ## Output
 
-The final output should be at least record the set of brilliant moves for the entire dataset, but may extend to creating a games and moves table. The visualization and analysis will likely be done in Python using a Jupyter notebook or markdown.
+The final output should be at least record the game and move attributes for all games with at least one forced checkmate and evaluations for the entire dataset. The visualization and analysis will likely be done in Python using a Jupyter notebook or markdown.
