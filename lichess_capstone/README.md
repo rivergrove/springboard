@@ -39,4 +39,4 @@ I would like to analyze the games that contain one or more forced checkmate(s) i
 
 ## Output
 
-The final output should be at least record the game and move attributes for all games with at least one forced checkmate and evaluations for the entire dataset. The visualization and analysis will likely be done in Python using a Jupyter notebook or markdown.
+The final output should at least record the game and move attributes for all games with at least one forced checkmate and evaluations. The visualization and analysis will likely be done in Python using a Jupyter notebook or markdown.
