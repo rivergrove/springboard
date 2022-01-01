@@ -1,0 +1,185 @@
+➜  move hadoop jar /Users/anthonyolund/myhadoop/hadoop-3.3.1/share/hadoop/tools/lib/hadoop-streaming-3.3.1.jar \
+-file mapper1.py -mapper mapper1.py \
+-file reduce1.py -reducer reduce1.py \
+-input /user/input/data.csv -output /user/output/output1
+2022-01-01 13:46:26,594 WARN streaming.StreamJob: -file option is deprecated, please use generic option -files instead.
+2022-01-01 13:46:26,770 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+packageJobJar: [mapper1.py, reduce1.py, /var/folders/_1/fhhdt3rx4b547dqcswnn523w0000gn/T/hadoop-unjar8207395737873767511/] [] /var/folders/_1/fhhdt3rx4b547dqcswnn523w0000gn/T/streamjob6899508067875342776.jar tmpDir=null
+2022-01-01 13:46:27,776 INFO client.DefaultNoHARMFailoverProxyProvider: Connecting to ResourceManager at /0.0.0.0:8032
+2022-01-01 13:46:27,956 INFO client.DefaultNoHARMFailoverProxyProvider: Connecting to ResourceManager at /0.0.0.0:8032
+2022-01-01 13:46:28,363 INFO mapreduce.JobResourceUploader: Disabling Erasure Coding for path: /tmp/hadoop-yarn/staging/anthonyolund/.staging/job_1641073124873_0001
+2022-01-01 13:46:29,787 INFO mapred.FileInputFormat: Total input files to process : 1
+2022-01-01 13:46:29,986 INFO mapreduce.JobSubmitter: number of splits:2
+2022-01-01 13:46:30,250 INFO mapreduce.JobSubmitter: Submitting tokens for job: job_1641073124873_0001
+2022-01-01 13:46:30,250 INFO mapreduce.JobSubmitter: Executing with tokens: []
+2022-01-01 13:46:30,516 INFO conf.Configuration: resource-types.xml not found
+2022-01-01 13:46:30,516 INFO resource.ResourceUtils: Unable to find 'resource-types.xml'.
+2022-01-01 13:46:30,832 INFO impl.YarnClientImpl: Submitted application application_1641073124873_0001
+2022-01-01 13:46:30,899 INFO mapreduce.Job: The url to track the job: http://MacBook-Pro-2.local:8088/proxy/application_1641073124873_0001/
+2022-01-01 13:46:30,908 INFO mapreduce.Job: Running job: job_1641073124873_0001
+2022-01-01 13:46:40,310 INFO mapreduce.Job: Job job_1641073124873_0001 running in uber mode : false
+2022-01-01 13:46:40,317 INFO mapreduce.Job:  map 0% reduce 0%
+2022-01-01 13:46:46,557 INFO mapreduce.Job:  map 100% reduce 0%
+2022-01-01 13:46:51,659 INFO mapreduce.Job:  map 100% reduce 100%
+2022-01-01 13:46:52,746 INFO mapreduce.Job: Job job_1641073124873_0001 completed successfully
+2022-01-01 13:46:52,941 INFO mapreduce.Job: Counters: 50
+    File System Counters
+        FILE: Number of bytes read=446
+        FILE: Number of bytes written=829449
+        FILE: Number of read operations=0
+        FILE: Number of large read operations=0
+        FILE: Number of write operations=0
+        HDFS: Number of bytes read=1676
+        HDFS: Number of bytes written=126
+        HDFS: Number of read operations=11
+        HDFS: Number of large read operations=0
+        HDFS: Number of write operations=2
+        HDFS: Number of bytes read erasure-coded=0
+    Job Counters
+        Launched map tasks=2
+        Launched reduce tasks=1
+        Data-local map tasks=2
+        Total time spent by all maps in occupied slots (ms)=7148
+        Total time spent by all reduces in occupied slots (ms)=2901
+        Total time spent by all map tasks (ms)=7148
+        Total time spent by all reduce tasks (ms)=2901
+        Total vcore-milliseconds taken by all map tasks=7148
+        Total vcore-milliseconds taken by all reduce tasks=2901
+        Total megabyte-milliseconds taken by all map tasks=7319552
+        Total megabyte-milliseconds taken by all reduce tasks=2970624
+    Map-Reduce Framework
+        Map input records=16
+        Map output records=16
+        Map output bytes=408
+        Map output materialized bytes=452
+        Input split bytes=186
+        Combine input records=0
+        Combine output records=0
+        Reduce input groups=5
+        Reduce shuffle bytes=452
+        Reduce input records=16
+        Reduce output records=4
+        Spilled Records=32
+        Shuffled Maps =2
+        Failed Shuffles=0
+        Merged Map outputs=2
+        GC time elapsed (ms)=150
+        CPU time spent (ms)=0
+        Physical memory (bytes) snapshot=0
+        Virtual memory (bytes) snapshot=0
+        Total committed heap usage (bytes)=781189120
+    Shuffle Errors
+        BAD_ID=0
+        CONNECTION=0
+        IO_ERROR=0
+        WRONG_LENGTH=0
+        WRONG_MAP=0
+        WRONG_REDUCE=0
+    File Input Format Counters
+        Bytes Read=1490
+    File Output Format Counters
+        Bytes Written=126
+2022-01-01 13:46:52,941 INFO streaming.StreamJob: Output directory: /user/output/output1
+➜  move hdfs dfs -ls /user/output/output1/
+2022-01-01 13:47:17,203 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+Found 2 items
+-rw-r--r--   1 anthonyolund supergroup          0 2022-01-01 13:46 /user/output/output1/_SUCCESS
+-rw-r--r--   1 anthonyolund supergroup        126 2022-01-01 13:46 /user/output/output1/part-00000
+➜  move hdfs dfs -cat /user/output/output1/part-00000
+2022-01-01 13:47:34,827 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+EXOA00341AB123456   Mercedes,2016
+INU45KIOOPA343980   Mercedes,2015
+VOME254OOXW344325   Mercedes,2015
+VXIO456XLBB630221   Nissan,2003
+➜  move hadoop jar /Users/anthonyolund/myhadoop/hadoop-3.3.1/share/hadoop/tools/lib/hadoop-streaming-3.3.1.jar \
+-file mapper2.py -mapper mapper2.py \
+-file reduce2.py -reducer reduce2.py \
+-input /user/output/output1 -output /user/output/output2
+2022-01-01 14:04:17,043 WARN streaming.StreamJob: -file option is deprecated, please use generic option -files instead.
+2022-01-01 14:04:17,245 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+packageJobJar: [mapper2.py, reduce2.py, /var/folders/_1/fhhdt3rx4b547dqcswnn523w0000gn/T/hadoop-unjar8850144161780788425/] [] /var/folders/_1/fhhdt3rx4b547dqcswnn523w0000gn/T/streamjob5468100002470920715.jar tmpDir=null
+2022-01-01 14:04:18,234 INFO client.DefaultNoHARMFailoverProxyProvider: Connecting to ResourceManager at /0.0.0.0:8032
+2022-01-01 14:04:18,429 INFO client.DefaultNoHARMFailoverProxyProvider: Connecting to ResourceManager at /0.0.0.0:8032
+2022-01-01 14:04:18,766 INFO mapreduce.JobResourceUploader: Disabling Erasure Coding for path: /tmp/hadoop-yarn/staging/anthonyolund/.staging/job_1641073124873_0002
+2022-01-01 14:04:20,177 INFO mapred.FileInputFormat: Total input files to process : 1
+2022-01-01 14:04:21,190 INFO mapreduce.JobSubmitter: number of splits:2
+2022-01-01 14:04:21,910 INFO mapreduce.JobSubmitter: Submitting tokens for job: job_1641073124873_0002
+2022-01-01 14:04:21,911 INFO mapreduce.JobSubmitter: Executing with tokens: []
+2022-01-01 14:04:22,212 INFO conf.Configuration: resource-types.xml not found
+2022-01-01 14:04:22,213 INFO resource.ResourceUtils: Unable to find 'resource-types.xml'.
+2022-01-01 14:04:22,297 INFO impl.YarnClientImpl: Submitted application application_1641073124873_0002
+2022-01-01 14:04:22,333 INFO mapreduce.Job: The url to track the job: http://MacBook-Pro-2.local:8088/proxy/application_1641073124873_0002/
+2022-01-01 14:04:22,335 INFO mapreduce.Job: Running job: job_1641073124873_0002
+2022-01-01 14:04:30,808 INFO mapreduce.Job: Job job_1641073124873_0002 running in uber mode : false
+2022-01-01 14:04:30,817 INFO mapreduce.Job:  map 0% reduce 0%
+2022-01-01 14:04:37,062 INFO mapreduce.Job:  map 100% reduce 0%
+2022-01-01 14:04:42,203 INFO mapreduce.Job:  map 100% reduce 100%
+2022-01-01 14:04:44,324 INFO mapreduce.Job: Job job_1641073124873_0002 completed successfully
+2022-01-01 14:04:44,527 INFO mapreduce.Job: Counters: 50
+    File System Counters
+        FILE: Number of bytes read=80
+        FILE: Number of bytes written=828714
+        FILE: Number of read operations=0
+        FILE: Number of large read operations=0
+        FILE: Number of write operations=0
+        HDFS: Number of bytes read=397
+        HDFS: Number of bytes written=64
+        HDFS: Number of read operations=11
+        HDFS: Number of large read operations=0
+        HDFS: Number of write operations=2
+        HDFS: Number of bytes read erasure-coded=0
+    Job Counters
+        Launched map tasks=2
+        Launched reduce tasks=1
+        Data-local map tasks=2
+        Total time spent by all maps in occupied slots (ms)=7331
+        Total time spent by all reduces in occupied slots (ms)=2986
+        Total time spent by all map tasks (ms)=7331
+        Total time spent by all reduce tasks (ms)=2986
+        Total vcore-milliseconds taken by all map tasks=7331
+        Total vcore-milliseconds taken by all reduce tasks=2986
+        Total megabyte-milliseconds taken by all map tasks=7506944
+        Total megabyte-milliseconds taken by all reduce tasks=3057664
+    Map-Reduce Framework
+        Map input records=4
+        Map output records=4
+        Map output bytes=66
+        Map output materialized bytes=86
+        Input split bytes=208
+        Combine input records=0
+        Combine output records=0
+        Reduce input groups=3
+        Reduce shuffle bytes=86
+        Reduce input records=4
+        Reduce output records=3
+        Spilled Records=8
+        Shuffled Maps =2
+        Failed Shuffles=0
+        Merged Map outputs=2
+        GC time elapsed (ms)=146
+        CPU time spent (ms)=0
+        Physical memory (bytes) snapshot=0
+        Virtual memory (bytes) snapshot=0
+        Total committed heap usage (bytes)=781189120
+    Shuffle Errors
+        BAD_ID=0
+        CONNECTION=0
+        IO_ERROR=0
+        WRONG_LENGTH=0
+        WRONG_MAP=0
+        WRONG_REDUCE=0
+    File Input Format Counters
+        Bytes Read=189
+    File Output Format Counters
+        Bytes Written=64
+2022-01-01 14:04:44,527 INFO streaming.StreamJob: Output directory: /user/output/output2
+➜  move hdfs dfs -ls /user/output/output2/
+2022-01-01 14:05:06,385 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+Found 2 items
+-rw-r--r--   1 anthonyolund supergroup          0 2022-01-01 14:04 /user/output/output2/_SUCCESS
+-rw-r--r--   1 anthonyolund supergroup         64 2022-01-01 14:04 /user/output/output2/part-00000
+➜  move hdfs dfs -cat /user/output/output2/part-00000
+2022-01-01 14:05:13,786 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+('Nissan,2003', 1)
+('Mercedes,2015', 2)
+('Mercedes,2016', 1)
