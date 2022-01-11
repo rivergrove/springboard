@@ -8,8 +8,8 @@ from parse_csv import parse_csv
 findspark.init()
 spark = SparkSession.builder.master('local').appName('app').getOrCreate()
 spark.conf.set(
-"fs.azure.account.key.aoopenendedcaptstone.blob.core.windows.net",
-"GuVfKgtb2AvI7229kkslwd2PpQC69IwOzo/sO2yN8O4ztAZhRwQR7j4Tq+JeVD9aYmZPH/8Qaqt+w8OknP4OOQ=="
+"fs.azure.account.key.<storage-account-name>.blob.core.windows.net",
+"<your-storage-account-access-key>"
 )
 
 schema = StructType([StructField("trade_dt", DateType(), True)
@@ -35,8 +35,8 @@ def find(pattern, path):
                 result.append(os.path.join(root, name))
     return result
 
-raw_csv = spark.sparkContext.textFile("wasbs://mycontainer@aoopenendedcaptstone.blob.core.windows.net/data/csv/*/NYSE/*.txt")
-raw_json = spark.sparkContext.textFile("wasbs://mycontainer@aoopenendedcaptstone.blob.core.windows.net/data/json/*/NASDAQ/*.txt")
+raw_csv = spark.sparkContext.textFile("wasbs://mycontainer@storage_container_name.blob.core.windows.net/data/csv/*/NYSE/*.txt")
+raw_json = spark.sparkContext.textFile("wasbs://mycontainer@storage_container_name.blob.core.windows.net/data/json/*/NASDAQ/*.txt")
 
 parsed_csv = raw_csv.map(lambda line: parse_csv(line))
 csv_data = spark.createDataFrame(parsed_csv, schema=schema)
