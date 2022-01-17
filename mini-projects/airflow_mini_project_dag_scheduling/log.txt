@@ -1,0 +1,188 @@
+*** Reading local file: /Users/anthonyolund/airflow/logs/marketvol/create_data_directory/2022-01-17T23:11:27.342636+00:00/1.log
+[2022-01-17, 07:11:30 PST] {taskinstance.py:1032} INFO - Dependencies all met for <TaskInstance: marketvol.create_data_directory manual__2022-01-17T23:11:27.342636+00:00 [queued]>
+[2022-01-17, 07:11:30 PST] {taskinstance.py:1032} INFO - Dependencies all met for <TaskInstance: marketvol.create_data_directory manual__2022-01-17T23:11:27.342636+00:00 [queued]>
+[2022-01-17, 07:11:30 PST] {taskinstance.py:1238} INFO - 
+--------------------------------------------------------------------------------
+[2022-01-17, 07:11:30 PST] {taskinstance.py:1239} INFO - Starting attempt 1 of 1
+[2022-01-17, 07:11:30 PST] {taskinstance.py:1240} INFO - 
+--------------------------------------------------------------------------------
+[2022-01-17, 07:11:30 PST] {taskinstance.py:1259} INFO - Executing <Task(BashOperator): create_data_directory> on 2022-01-17 23:11:27.342636+00:00
+[2022-01-17, 07:11:30 PST] {standard_task_runner.py:52} INFO - Started process 22959 to run task
+[2022-01-17, 07:11:30 PST] {standard_task_runner.py:76} INFO - Running: ['airflow', 'tasks', 'run', 'marketvol', 'create_data_directory', 'manual__2022-01-17T23:11:27.342636+00:00', '--job-id', '89', '--raw', '--subdir', 'DAGS_FOLDER/marketvol_dag.py', '--cfg-path', '/var/folders/_1/fhhdt3rx4b547dqcswnn523w0000gn/T/tmpviolu5_c', '--error-file', '/var/folders/_1/fhhdt3rx4b547dqcswnn523w0000gn/T/tmp441fpilj']
+[2022-01-17, 07:11:30 PST] {standard_task_runner.py:77} INFO - Job 89: Subtask create_data_directory
+[2022-01-17, 07:11:30 PST] {logging_mixin.py:109} INFO - Running <TaskInstance: marketvol.create_data_directory manual__2022-01-17T23:11:27.342636+00:00 [running]> on host 1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.ip6.arpa
+[2022-01-17, 07:11:30 PST] {taskinstance.py:1424} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=airflow
+AIRFLOW_CTX_DAG_ID=marketvol
+AIRFLOW_CTX_TASK_ID=create_data_directory
+AIRFLOW_CTX_EXECUTION_DATE=2022-01-17T23:11:27.342636+00:00
+AIRFLOW_CTX_DAG_RUN_ID=manual__2022-01-17T23:11:27.342636+00:00
+[2022-01-17, 07:11:30 PST] {subprocess.py:62} INFO - Tmp dir root location: 
+ /var/folders/_1/fhhdt3rx4b547dqcswnn523w0000gn/T
+[2022-01-17, 07:11:30 PST] {subprocess.py:74} INFO - Running command: ['bash', '-c', 'mkdir -p /tmp/data/2022-01-17']
+[2022-01-17, 07:11:30 PST] {subprocess.py:85} INFO - Output:
+[2022-01-17, 07:11:30 PST] {subprocess.py:93} INFO - Command exited with return code 0
+[2022-01-17, 07:11:30 PST] {taskinstance.py:1267} INFO - Marking task as SUCCESS. dag_id=marketvol, task_id=create_data_directory, execution_date=20220117T231127, start_date=20220117T231130, end_date=20220117T231130
+[2022-01-17, 07:11:30 PST] {local_task_job.py:154} INFO - Task exited with return code 0
+[2022-01-17, 07:11:30 PST] {local_task_job.py:264} INFO - 2 downstream tasks scheduled from follow-on schedule check
+
+*** Reading local file: /Users/anthonyolund/airflow/logs/marketvol/download_tesla_data/2022-01-17T23:11:27.342636+00:00/1.log
+[2022-01-17, 07:11:32 PST] {taskinstance.py:1032} INFO - Dependencies all met for <TaskInstance: marketvol.download_tesla_data manual__2022-01-17T23:11:27.342636+00:00 [queued]>
+[2022-01-17, 07:11:32 PST] {taskinstance.py:1032} INFO - Dependencies all met for <TaskInstance: marketvol.download_tesla_data manual__2022-01-17T23:11:27.342636+00:00 [queued]>
+[2022-01-17, 07:11:32 PST] {taskinstance.py:1238} INFO - 
+--------------------------------------------------------------------------------
+[2022-01-17, 07:11:32 PST] {taskinstance.py:1239} INFO - Starting attempt 1 of 1
+[2022-01-17, 07:11:32 PST] {taskinstance.py:1240} INFO - 
+--------------------------------------------------------------------------------
+[2022-01-17, 07:11:32 PST] {taskinstance.py:1259} INFO - Executing <Task(PythonOperator): download_tesla_data> on 2022-01-17 23:11:27.342636+00:00
+[2022-01-17, 07:11:32 PST] {standard_task_runner.py:52} INFO - Started process 22963 to run task
+[2022-01-17, 07:11:32 PST] {standard_task_runner.py:76} INFO - Running: ['airflow', 'tasks', 'run', 'marketvol', 'download_tesla_data', 'manual__2022-01-17T23:11:27.342636+00:00', '--job-id', '90', '--raw', '--subdir', 'DAGS_FOLDER/marketvol_dag.py', '--cfg-path', '/var/folders/_1/fhhdt3rx4b547dqcswnn523w0000gn/T/tmpzo11x00l', '--error-file', '/var/folders/_1/fhhdt3rx4b547dqcswnn523w0000gn/T/tmpw3cx2ipn']
+[2022-01-17, 07:11:32 PST] {standard_task_runner.py:77} INFO - Job 90: Subtask download_tesla_data
+[2022-01-17, 07:11:32 PST] {logging_mixin.py:109} INFO - Running <TaskInstance: marketvol.download_tesla_data manual__2022-01-17T23:11:27.342636+00:00 [running]> on host 1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.ip6.arpa
+[2022-01-17, 07:11:32 PST] {taskinstance.py:1424} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=airflow
+AIRFLOW_CTX_DAG_ID=marketvol
+AIRFLOW_CTX_TASK_ID=download_tesla_data
+AIRFLOW_CTX_EXECUTION_DATE=2022-01-17T23:11:27.342636+00:00
+AIRFLOW_CTX_DAG_RUN_ID=manual__2022-01-17T23:11:27.342636+00:00
+[2022-01-17, 07:11:32 PST] {logging_mixin.py:109} INFO - 
+[*********************100%***********************]  1 of 1 completed
+[2022-01-17, 07:11:32 PST] {logging_mixin.py:109} INFO - 
+[2022-01-17, 07:11:32 PST] {logging_mixin.py:109} INFO - start_date: 2022-01-17 00:00:00, end_date: 2022-01-17 15:11:32.345169
+[2022-01-17, 07:11:32 PST] {python.py:175} INFO - Done. Returned value was: None
+[2022-01-17, 07:11:32 PST] {taskinstance.py:1267} INFO - Marking task as SUCCESS. dag_id=marketvol, task_id=download_tesla_data, execution_date=20220117T231127, start_date=20220117T231132, end_date=20220117T231132
+[2022-01-17, 07:11:32 PST] {local_task_job.py:154} INFO - Task exited with return code 0
+[2022-01-17, 07:11:32 PST] {local_task_job.py:264} INFO - 1 downstream tasks scheduled from follow-on schedule check
+
+*** Reading local file: /Users/anthonyolund/airflow/logs/marketvol/load_tesla_to_hdfs/2022-01-17T23:11:27.342636+00:00/1.log
+[2022-01-17, 07:11:36 PST] {taskinstance.py:1032} INFO - Dependencies all met for <TaskInstance: marketvol.load_tesla_to_hdfs manual__2022-01-17T23:11:27.342636+00:00 [queued]>
+[2022-01-17, 07:11:36 PST] {taskinstance.py:1032} INFO - Dependencies all met for <TaskInstance: marketvol.load_tesla_to_hdfs manual__2022-01-17T23:11:27.342636+00:00 [queued]>
+[2022-01-17, 07:11:36 PST] {taskinstance.py:1238} INFO - 
+--------------------------------------------------------------------------------
+[2022-01-17, 07:11:36 PST] {taskinstance.py:1239} INFO - Starting attempt 1 of 1
+[2022-01-17, 07:11:36 PST] {taskinstance.py:1240} INFO - 
+--------------------------------------------------------------------------------
+[2022-01-17, 07:11:36 PST] {taskinstance.py:1259} INFO - Executing <Task(BashOperator): load_tesla_to_hdfs> on 2022-01-17 23:11:27.342636+00:00
+[2022-01-17, 07:11:36 PST] {standard_task_runner.py:52} INFO - Started process 22968 to run task
+[2022-01-17, 07:11:36 PST] {standard_task_runner.py:76} INFO - Running: ['airflow', 'tasks', 'run', 'marketvol', 'load_tesla_to_hdfs', 'manual__2022-01-17T23:11:27.342636+00:00', '--job-id', '92', '--raw', '--subdir', 'DAGS_FOLDER/marketvol_dag.py', '--cfg-path', '/var/folders/_1/fhhdt3rx4b547dqcswnn523w0000gn/T/tmp6k0osmlg', '--error-file', '/var/folders/_1/fhhdt3rx4b547dqcswnn523w0000gn/T/tmpgpej_s2t']
+[2022-01-17, 07:11:36 PST] {standard_task_runner.py:77} INFO - Job 92: Subtask load_tesla_to_hdfs
+[2022-01-17, 07:11:36 PST] {logging_mixin.py:109} INFO - Running <TaskInstance: marketvol.load_tesla_to_hdfs manual__2022-01-17T23:11:27.342636+00:00 [running]> on host 1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.ip6.arpa
+[2022-01-17, 07:11:36 PST] {taskinstance.py:1424} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=airflow
+AIRFLOW_CTX_DAG_ID=marketvol
+AIRFLOW_CTX_TASK_ID=load_tesla_to_hdfs
+AIRFLOW_CTX_EXECUTION_DATE=2022-01-17T23:11:27.342636+00:00
+AIRFLOW_CTX_DAG_RUN_ID=manual__2022-01-17T23:11:27.342636+00:00
+[2022-01-17, 07:11:36 PST] {subprocess.py:62} INFO - Tmp dir root location: 
+ /var/folders/_1/fhhdt3rx4b547dqcswnn523w0000gn/T
+[2022-01-17, 07:11:36 PST] {subprocess.py:74} INFO - Running command: ['bash', '-c', 'hdfs dfs -put /tmp/data/2022-01-17/TSLA.csv /data/TSLA_2022-01-17.csv']
+[2022-01-17, 07:11:36 PST] {subprocess.py:85} INFO - Output:
+[2022-01-17, 07:11:37 PST] {subprocess.py:89} INFO - 2022-01-17, 07:11:37 PST WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2022-01-17, 07:11:38 PST] {subprocess.py:93} INFO - Command exited with return code 0
+[2022-01-17, 07:11:38 PST] {taskinstance.py:1267} INFO - Marking task as SUCCESS. dag_id=marketvol, task_id=load_tesla_to_hdfs, execution_date=20220117T231127, start_date=20220117T231136, end_date=20220117T231138
+[2022-01-17, 07:11:38 PST] {local_task_job.py:154} INFO - Task exited with return code 0
+[2022-01-17, 07:11:38 PST] {local_task_job.py:264} INFO - 0 downstream tasks scheduled from follow-on schedule check
+
+*** Reading local file: /Users/anthonyolund/airflow/logs/marketvol/download_apple_data/2022-01-17T23:11:27.342636+00:00/1.log
+[2022-01-17, 07:11:33 PST] {taskinstance.py:1032} INFO - Dependencies all met for <TaskInstance: marketvol.download_apple_data manual__2022-01-17T23:11:27.342636+00:00 [queued]>
+[2022-01-17, 07:11:33 PST] {taskinstance.py:1032} INFO - Dependencies all met for <TaskInstance: marketvol.download_apple_data manual__2022-01-17T23:11:27.342636+00:00 [queued]>
+[2022-01-17, 07:11:33 PST] {taskinstance.py:1238} INFO - 
+--------------------------------------------------------------------------------
+[2022-01-17, 07:11:33 PST] {taskinstance.py:1239} INFO - Starting attempt 1 of 1
+[2022-01-17, 07:11:33 PST] {taskinstance.py:1240} INFO - 
+--------------------------------------------------------------------------------
+[2022-01-17, 07:11:33 PST] {taskinstance.py:1259} INFO - Executing <Task(PythonOperator): download_apple_data> on 2022-01-17 23:11:27.342636+00:00
+[2022-01-17, 07:11:33 PST] {standard_task_runner.py:52} INFO - Started process 22965 to run task
+[2022-01-17, 07:11:33 PST] {standard_task_runner.py:76} INFO - Running: ['airflow', 'tasks', 'run', 'marketvol', 'download_apple_data', 'manual__2022-01-17T23:11:27.342636+00:00', '--job-id', '91', '--raw', '--subdir', 'DAGS_FOLDER/marketvol_dag.py', '--cfg-path', '/var/folders/_1/fhhdt3rx4b547dqcswnn523w0000gn/T/tmpbm4a15y2', '--error-file', '/var/folders/_1/fhhdt3rx4b547dqcswnn523w0000gn/T/tmp_ho_vypt']
+[2022-01-17, 07:11:33 PST] {standard_task_runner.py:77} INFO - Job 91: Subtask download_apple_data
+[2022-01-17, 07:11:33 PST] {logging_mixin.py:109} INFO - Running <TaskInstance: marketvol.download_apple_data manual__2022-01-17T23:11:27.342636+00:00 [running]> on host 1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.ip6.arpa
+[2022-01-17, 07:11:33 PST] {taskinstance.py:1424} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=airflow
+AIRFLOW_CTX_DAG_ID=marketvol
+AIRFLOW_CTX_TASK_ID=download_apple_data
+AIRFLOW_CTX_EXECUTION_DATE=2022-01-17T23:11:27.342636+00:00
+AIRFLOW_CTX_DAG_RUN_ID=manual__2022-01-17T23:11:27.342636+00:00
+[2022-01-17, 07:11:34 PST] {logging_mixin.py:109} INFO - 
+[*********************100%***********************]  1 of 1 completed
+[2022-01-17, 07:11:34 PST] {logging_mixin.py:109} INFO - 
+[2022-01-17, 07:11:34 PST] {logging_mixin.py:109} INFO - start_date: 2022-01-17 00:00:00, end_date: 2022-01-17 15:11:33.832135
+[2022-01-17, 07:11:34 PST] {python.py:175} INFO - Done. Returned value was: None
+[2022-01-17, 07:11:34 PST] {taskinstance.py:1267} INFO - Marking task as SUCCESS. dag_id=marketvol, task_id=download_apple_data, execution_date=20220117T231127, start_date=20220117T231133, end_date=20220117T231134
+[2022-01-17, 07:11:34 PST] {local_task_job.py:154} INFO - Task exited with return code 0
+[2022-01-17, 07:11:34 PST] {local_task_job.py:264} INFO - 1 downstream tasks scheduled from follow-on schedule check
+
+*** Reading local file: /Users/anthonyolund/airflow/logs/marketvol/load_apple_to_hdfs/2022-01-17T23:11:27.342636+00:00/1.log
+[2022-01-17, 07:11:40 PST] {taskinstance.py:1032} INFO - Dependencies all met for <TaskInstance: marketvol.load_apple_to_hdfs manual__2022-01-17T23:11:27.342636+00:00 [queued]>
+[2022-01-17, 07:11:40 PST] {taskinstance.py:1032} INFO - Dependencies all met for <TaskInstance: marketvol.load_apple_to_hdfs manual__2022-01-17T23:11:27.342636+00:00 [queued]>
+[2022-01-17, 07:11:40 PST] {taskinstance.py:1238} INFO - 
+--------------------------------------------------------------------------------
+[2022-01-17, 07:11:40 PST] {taskinstance.py:1239} INFO - Starting attempt 1 of 1
+[2022-01-17, 07:11:40 PST] {taskinstance.py:1240} INFO - 
+--------------------------------------------------------------------------------
+[2022-01-17, 07:11:40 PST] {taskinstance.py:1259} INFO - Executing <Task(BashOperator): load_apple_to_hdfs> on 2022-01-17 23:11:27.342636+00:00
+[2022-01-17, 07:11:40 PST] {standard_task_runner.py:52} INFO - Started process 23013 to run task
+[2022-01-17, 07:11:40 PST] {standard_task_runner.py:76} INFO - Running: ['airflow', 'tasks', 'run', 'marketvol', 'load_apple_to_hdfs', 'manual__2022-01-17T23:11:27.342636+00:00', '--job-id', '93', '--raw', '--subdir', 'DAGS_FOLDER/marketvol_dag.py', '--cfg-path', '/var/folders/_1/fhhdt3rx4b547dqcswnn523w0000gn/T/tmp9ctjeiyl', '--error-file', '/var/folders/_1/fhhdt3rx4b547dqcswnn523w0000gn/T/tmp4_vmiomm']
+[2022-01-17, 07:11:40 PST] {standard_task_runner.py:77} INFO - Job 93: Subtask load_apple_to_hdfs
+[2022-01-17, 07:11:40 PST] {logging_mixin.py:109} INFO - Running <TaskInstance: marketvol.load_apple_to_hdfs manual__2022-01-17T23:11:27.342636+00:00 [running]> on host 1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.ip6.arpa
+[2022-01-17, 07:11:40 PST] {taskinstance.py:1424} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=airflow
+AIRFLOW_CTX_DAG_ID=marketvol
+AIRFLOW_CTX_TASK_ID=load_apple_to_hdfs
+AIRFLOW_CTX_EXECUTION_DATE=2022-01-17T23:11:27.342636+00:00
+AIRFLOW_CTX_DAG_RUN_ID=manual__2022-01-17T23:11:27.342636+00:00
+[2022-01-17, 07:11:40 PST] {subprocess.py:62} INFO - Tmp dir root location: 
+ /var/folders/_1/fhhdt3rx4b547dqcswnn523w0000gn/T
+[2022-01-17, 07:11:40 PST] {subprocess.py:74} INFO - Running command: ['bash', '-c', 'hdfs dfs -put /tmp/data/2022-01-17/AAPL.csv /data/AAPL_2022-01-17.csv']
+[2022-01-17, 07:11:40 PST] {subprocess.py:85} INFO - Output:
+[2022-01-17, 07:11:41 PST] {subprocess.py:89} INFO - 2022-01-17, 07:11:41 PST WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2022-01-17, 07:11:42 PST] {subprocess.py:93} INFO - Command exited with return code 0
+[2022-01-17, 07:11:42 PST] {taskinstance.py:1267} INFO - Marking task as SUCCESS. dag_id=marketvol, task_id=load_apple_to_hdfs, execution_date=20220117T231127, start_date=20220117T231140, end_date=20220117T231142
+[2022-01-17, 07:11:42 PST] {local_task_job.py:154} INFO - Task exited with return code 0
+[2022-01-17, 07:11:42 PST] {local_task_job.py:264} INFO - 1 downstream tasks scheduled from follow-on schedule check
+
+*** Reading local file: /Users/anthonyolund/airflow/logs/marketvol/query_data/2022-01-17T23:11:27.342636+00:00/1.log
+[2022-01-17, 07:11:44 PST] {taskinstance.py:1032} INFO - Dependencies all met for <TaskInstance: marketvol.query_data manual__2022-01-17T23:11:27.342636+00:00 [queued]>
+[2022-01-17, 07:11:44 PST] {taskinstance.py:1032} INFO - Dependencies all met for <TaskInstance: marketvol.query_data manual__2022-01-17T23:11:27.342636+00:00 [queued]>
+[2022-01-17, 07:11:44 PST] {taskinstance.py:1238} INFO - 
+--------------------------------------------------------------------------------
+[2022-01-17, 07:11:44 PST] {taskinstance.py:1239} INFO - Starting attempt 1 of 1
+[2022-01-17, 07:11:44 PST] {taskinstance.py:1240} INFO - 
+--------------------------------------------------------------------------------
+[2022-01-17, 07:11:44 PST] {taskinstance.py:1259} INFO - Executing <Task(BashOperator): query_data> on 2022-01-17 23:11:27.342636+00:00
+[2022-01-17, 07:11:44 PST] {standard_task_runner.py:52} INFO - Started process 23059 to run task
+[2022-01-17, 07:11:44 PST] {standard_task_runner.py:76} INFO - Running: ['airflow', 'tasks', 'run', 'marketvol', 'query_data', 'manual__2022-01-17T23:11:27.342636+00:00', '--job-id', '94', '--raw', '--subdir', 'DAGS_FOLDER/marketvol_dag.py', '--cfg-path', '/var/folders/_1/fhhdt3rx4b547dqcswnn523w0000gn/T/tmp5rmjy3pp', '--error-file', '/var/folders/_1/fhhdt3rx4b547dqcswnn523w0000gn/T/tmpsp6dzlff']
+[2022-01-17, 07:11:44 PST] {standard_task_runner.py:77} INFO - Job 94: Subtask query_data
+[2022-01-17, 07:11:44 PST] {logging_mixin.py:109} INFO - Running <TaskInstance: marketvol.query_data manual__2022-01-17T23:11:27.342636+00:00 [running]> on host 1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.ip6.arpa
+[2022-01-17, 07:11:44 PST] {taskinstance.py:1424} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=airflow
+AIRFLOW_CTX_DAG_ID=marketvol
+AIRFLOW_CTX_TASK_ID=query_data
+AIRFLOW_CTX_EXECUTION_DATE=2022-01-17T23:11:27.342636+00:00
+AIRFLOW_CTX_DAG_RUN_ID=manual__2022-01-17T23:11:27.342636+00:00
+[2022-01-17, 07:11:44 PST] {subprocess.py:62} INFO - Tmp dir root location: 
+ /var/folders/_1/fhhdt3rx4b547dqcswnn523w0000gn/T
+[2022-01-17, 07:11:44 PST] {subprocess.py:74} INFO - Running command: ['bash', '-c', 'hdfs dfs -head /data/TSLA_2022-01-17.csv && hdfs dfs -head /data/AAPL_2022-01-17.csv']
+[2022-01-17, 07:11:44 PST] {subprocess.py:85} INFO - Output:
+[2022-01-17, 07:11:45 PST] {subprocess.py:89} INFO - 2022-01-17, 07:11:45 PST WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2022-01-17, 07:11:46 PST] {subprocess.py:89} INFO - 2022-01-13 09:30:00-05:00,1109.06494140625,1110.0,1102.900146484375,1106.2181396484375,1106.2181396484375,886315
+[2022-01-17, 07:11:46 PST] {subprocess.py:89} INFO - 2022-01-13 09:31:00-05:00,1105.8299560546875,1108.9998779296875,1102.7601318359375,1104.4100341796875,1104.4100341796875,157047
+[2022-01-17, 07:11:46 PST] {subprocess.py:89} INFO - 2022-01-13 09:32:00-05:00,1104.739990234375,1108.0,1102.989990234375,1107.43994140625,1107.43994140625,155338
+[2022-01-17, 07:11:46 PST] {subprocess.py:89} INFO - 2022-01-13 09:33:00-05:00,1106.530029296875,1107.43994140625,1100.0,1104.5538330078125,1104.5538330078125,192078
+[2022-01-17, 07:11:46 PST] {subprocess.py:89} INFO - 2022-01-13 09:34:00-05:00,1104.5538330078125,1105.43994140625,1102.7750244140625,1104.9599609375,1104.9599609375,83006
+[2022-01-17, 07:11:46 PST] {subprocess.py:89} INFO - 2022-01-13 09:35:00-05:00,1103.510009765625,1107.999755859375,1102.0,1105.800048828125,1105.800048828125,143106
+[2022-01-17, 07:11:46 PST] {subprocess.py:89} INFO - 2022-01-13 09:36:00-05:00,1105.3402099609375,1105.3402099609375,1099.0,1101.47998046875,1101.47998046875,168514
+[2022-01-17, 07:11:46 PST] {subprocess.py:89} INFO - 2022-01-13 09:37:00-05:00,1101.532958984375,1104.6800537109375,1100.219970703125,1104.3380126953125,1104.3380126953125,108076
+[2022-01-17, 07:11:47 PST] {subprocess.py:89} INFO - 2022-01-13 09:38:00-05:00,1104.3599853515625,1107.5799560546875,1103.0,1104.0201416015625,12022-01-17, 07:11:47 PST WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2022-01-17, 07:11:48 PST] {subprocess.py:89} INFO - 2022-01-13 09:30:00-05:00,175.77999877929688,176.0399932861328,175.5500030517578,175.7969970703125,175.7969970703125,1857786
+[2022-01-17, 07:11:48 PST] {subprocess.py:89} INFO - 2022-01-13 09:31:00-05:00,175.77000427246094,176.0500030517578,175.55039978027344,175.86000061035156,175.86000061035156,307864
+[2022-01-17, 07:11:48 PST] {subprocess.py:89} INFO - 2022-01-13 09:32:00-05:00,175.86500549316406,176.22000122070312,175.86500549316406,176.10000610351562,176.10000610351562,450500
+[2022-01-17, 07:11:48 PST] {subprocess.py:89} INFO - 2022-01-13 09:33:00-05:00,176.11000061035156,176.27000427246094,175.87600708007812,176.15199279785156,176.15199279785156,432193
+[2022-01-17, 07:11:48 PST] {subprocess.py:89} INFO - 2022-01-13 09:34:00-05:00,176.14999389648438,176.24000549316406,175.91000366210938,176.0,176.0,376968
+[2022-01-17, 07:11:48 PST] {subprocess.py:89} INFO - 2022-01-13 09:35:00-05:00,175.9600067138672,176.33999633789062,175.89999389648438,176.32000732421875,176.32000732421875,375595
+[2022-01-17, 07:11:48 PST] {subprocess.py:89} INFO - 2022-01-13 09:36:00-05:00,176.32000732421875,176.3300018310547,175.8300018310547,175.90750122070312,175.90750122070312,351536
+[2022-01-17, 07:11:48 PST] {subprocess.py:89} INFO - 2022-01-13 09:37:00-05:00,175.91000366210938,176.36199951171875,175.77999877929688,176.35000610351562,176.35000610351562,395000
+[2022-01-17, 07:11:48 PST] {subprocess.py:89} INFO - 2022-01-13 09:38:00-05:00,176.369
+[2022-01-17, 07:11:48 PST] {subprocess.py:93} INFO - Command exited with return code 0
+[2022-01-17, 07:11:48 PST] {taskinstance.py:1267} INFO - Marking task as SUCCESS. dag_id=marketvol, task_id=query_data, execution_date=20220117T231127, start_date=20220117T231144, end_date=20220117T231148
+[2022-01-17, 07:11:48 PST] {local_task_job.py:154} INFO - Task exited with return code 0
+[2022-01-17, 07:11:48 PST] {local_task_job.py:264} INFO - 0 downstream tasks scheduled from follow-on schedule check
