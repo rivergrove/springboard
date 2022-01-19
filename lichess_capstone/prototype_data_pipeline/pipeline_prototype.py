@@ -79,7 +79,7 @@ class Pipeline:
                             rows_to_read.append((last_game_end,j))
                         j = 0
                         k += 1
-                    if line[0:3] in ('1. ', '1-0', '0-1', '1/2'):
+                    if line[0:3] in ('1. ', '1-0', '0-1', '1/2', ' 1-', ' 0-', ' 1/'):
                         last_game_end = j
                     j += 1
         print(f'{unzipped_file} has {k} games with evals')
