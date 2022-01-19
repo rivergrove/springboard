@@ -18,7 +18,8 @@ dag = DAG(
 
 create_data_directory = BashOperator(
     task_id="create_data_directory",
-    bash_command="mkdir -p /tmp/data/{{ds}}",
+    bash_command="mkdir -p /tmp/data/{{params.date}}",
+    params={'date': str(datetime.today().date())},
     dag=dag
 )
 
@@ -51,19 +52,22 @@ download_apple_data = PythonOperator(
 
 load_tesla_to_hdfs = BashOperator(
     task_id="load_tesla_to_hdfs",
-    bash_command="hdfs dfs -put /tmp/data/{{ds}}/TSLA.csv /data/TSLA_{{ds}}.csv",
+    bash_command="hdfs dfs -put /tmp/data/{{params.date}}/TSLA.csv /data/TSLA_{{params.date}}.csv",
+    params={'date': str(datetime.today().date())},
     dag=dag
 )
 
 load_apple_to_hdfs = BashOperator(
     task_id="load_apple_to_hdfs",
-    bash_command="hdfs dfs -put /tmp/data/{{ds}}/AAPL.csv /data/AAPL_{{ds}}.csv",
+    bash_command="hdfs dfs -put /tmp/data/{{params.date}}/AAPL.csv /data/AAPL_{{params.date}}.csv",
+    params={'date': str(datetime.today().date())},
     dag=dag
 )
 
 query_data = BashOperator(
     task_id="query_data",
-    bash_command="hdfs dfs -head /data/TSLA_{{ds}}.csv && hdfs dfs -head /data/AAPL_{{ds}}.csv",
+    bash_command="hdfs dfs -head /data/TSLA_{{params.date}}.csv && hdfs dfs -head /data/AAPL_{{params.date}}.csv",
+    params={'date': str(datetime.today().date())},
     dag=dag
 )
 
