@@ -254,4 +254,4 @@ left join temp_last_trade t
     and q.exchange = t.exchange
 order by q.symbol, q.event_tm, q.event_seq_nb
 """)
-quote_final.write.parquet("wasbs://output@aoopenendedcaptstone.blob.core.windows.net/step4_output/date={}".format(file_date))
+quote_final.write.mode("overwrite").parquet("wasbs://output@aoopenendedcaptstone.blob.core.windows.net/step4_output/date={}".format(file_date))
