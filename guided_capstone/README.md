@@ -42,3 +42,5 @@ Run [Bash Script](https://github.com/rivergrove/springboard/blob/master/guided_c
 
     eval "$submit" analytical_etl.py \
     --py-files "$tracker"
+    
+Job successes and failures are stored in a postgres db using the [job tracker](https://github.com/rivergrove/springboard/blob/master/guided_capstone/job_tracker.py)
