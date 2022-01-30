@@ -61,7 +61,7 @@ class Tracker(object):
                     host="localhost",
                     database="postgres",
                     user="postgres",
-                    password="virginia0")
+                    password=<password>)
             
             # create a cursor
             cur = conn.cursor()
