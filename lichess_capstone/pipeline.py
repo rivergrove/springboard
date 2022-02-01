@@ -20,24 +20,27 @@ logging.basicConfig(filename='logs/log_file.txt', filemode='a', format='%(asctim
 class Pipeline:
     def __init__(self):
         pass
-        
-    def download_data(self, month):
+    
+    def set_month(self, month):
+        self.month = month
+    
+    def download_data(self):
         """
         Pull lichess games for selected month. 
         Game data starts Jan 2013.
         """
 
-        file = requests.get("https://database.lichess.org/standard/lichess_db_standard_rated_" + month + ".pgn.bz2")
-        write_file = f'{month}.pgn.bz2'
+        file = requests.get("https://database.lichess.org/standard/lichess_db_standard_rated_" + self.month + ".pgn.bz2")
+        write_file = f'{self.month}.pgn.bz2'
         open(write_file, 'wb').write(file.content)
 
         global file_list
         file_list = []
         file_list.append(write_file)
 
-        print(month, 'data downloaded')
+        print(self.month, 'data downloaded')
 
-    def write_unzipped_pgn(self, month):
+    def write_unzipped_pgn(self):
         # read first n lines of zipped file and make new file
 
         # another way to read files commented below. Should be faster by up to 40%, but doesn't have view into lines of a file.
@@ -47,8 +50,8 @@ class Pipeline:
         # newfilepath = filepath[:-4] # assuming the filepath ends with .bz2
         # open(newfilepath, 'wb').write(data) # write a uncompressed file
 
-        read_file = f'{month}.pgn.bz2'
-        write_file = f'{month}.pgn'
+        read_file = f'{self.month}.pgn.bz2'
+        write_file = f'{self.month}.pgn'
 
         # read zipped file and write subset as unzipped file
         with bz2.BZ2File(read_file, "rb") as bzfin:
@@ -58,15 +61,15 @@ class Pipeline:
                     # if i == 50000000: break
                     fout.write(line) 
 
-    def locate_eval_games(self, month):
+    def locate_eval_games(self):
         # record tuple with location of lines for games with evals
 
         j = 0
         k = 0
         rows_to_read = []
         eval_lines_list = []
-        unzipped_file = f'{month}.pgn'
-        eval_lines_file = f'{month}_eval_lines.pgn'
+        unzipped_file = f'{self.month}.pgn'
+        eval_lines_file = f'{self.month}_eval_lines.pgn'
 
         with open(unzipped_file, 'r') as f:
             with open(eval_lines_file, "w") as eval_out:
@@ -87,7 +90,7 @@ class Pipeline:
         print(f'{unzipped_file} has {k} games with evals')
 
         # create eval file
-        eval_file = f'{month}_eval.pgn'
+        eval_file = f'{self.month}_eval.pgn'
 
         with open(unzipped_file, 'r') as fin:
             with open(eval_file, "w") as fout:
@@ -96,11 +99,11 @@ class Pipeline:
                         fout.write(line)
         print(f'{eval_lines_file} and {eval_file} written')
 
-    def create_games(self, month):
+    def create_games(self):
         # create a games file with all games with evals
         
-        eval_file = f'{month}_eval.pgn'
-        games_file = f'{month}_games.csv'
+        eval_file = f'{self.month}_eval.pgn'
+        games_file = f'{self.month}_games.csv'
         pgn = open(eval_file)
         
         i = 0
@@ -138,14 +141,14 @@ class Pipeline:
         
         return games_d
 
-    def create_moves(self, month):
+    def create_moves(self):
         # create a moves file with all moves from games with evals
 
         # run the create create games method. It will output a dictionary, games_d.
-        self.create_games(month)
+        self.create_games()
         
-        eval_lines_file = f'{month}_eval_lines.pgn'
-        moves_file = f'{month}_moves.csv'
+        eval_lines_file = f'{self.month}_eval_lines.pgn'
+        moves_file = f'{self.month}_moves.csv'
 
         # moves data
         with open(eval_lines_file, 'r') as f:
@@ -192,26 +195,26 @@ class Pipeline:
         print(f'{moves_file} written')
         logging.info(f'{moves_file} written')
 
-    def load_to_postgres(self, month):
+    def load_to_postgres(self):
         
         def chunker(seq, size):
             # from http://stackoverflow.com/a/434328
             return (seq[pos:pos + size] for pos in range(0, len(seq), size))
 
-        def insert_with_progress(month):
+        def insert_with_progress():
             engine = create_engine('postgresql://postgres:Virginia0@localhost:5432/anthonyolund')
             table_names = ['games','moves']
             for table_name in table_names:
-                file_name = f'{month}_{table_name}.csv'
+                file_name = f'{self.month}_{table_name}.csv'
                 df = pd.read_csv(file_name)
-                chunksize = int(len(df) / 1000)
+                chunksize = int(len(df) / 100)
                 with tqdm(total=len(df)) as pbar:
                     for i, cdf in enumerate(chunker(df, chunksize)):
                         cdf.to_sql(table_name, engine, index=False, if_exists='append')
                         pbar.update(chunksize)
                 print(f'{file_name} inserted to postgres')
         
-        insert_with_progress(month)
+        insert_with_progress()
 
             
     def run_pipeline(self, start_year, start_month, end_year, end_month):
@@ -222,11 +225,12 @@ class Pipeline:
 
         # execute extracting and cleaning steps on each month of data
         for month in months_range:
-            self.download_data(month)
-            self.write_unzipped_pgn(month)
-            self.locate_eval_games(month)
-            self.create_moves(month)
-            #self.load_to_postgres(month)
+            self.set_month(month)
+            self.download_data()
+            self.write_unzipped_pgn()
+            self.locate_eval_games()
+            self.create_moves()
+            self.load_to_postgres()
             print("")
 
     def test_logging(self):
