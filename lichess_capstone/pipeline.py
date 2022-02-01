@@ -202,7 +202,7 @@ class Pipeline:
             return (seq[pos:pos + size] for pos in range(0, len(seq), size))
 
         def insert_with_progress():
-            engine = create_engine('postgresql://postgres:Virginia0@localhost:5432/anthonyolund')
+            engine = create_engine('postgresql://postgres:<password>@localhost:5432/anthonyolund')
             table_names = ['games','moves']
             for table_name in table_names:
                 file_name = f'{self.month}_{table_name}.csv'
