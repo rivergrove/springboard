@@ -27,9 +27,8 @@ class Pipeline:
         Game data starts Jan 2013.
         """
 
-        mount = '' #/dbfs/mnt/iotdata/'
         file = requests.get("https://database.lichess.org/standard/lichess_db_standard_rated_" + month + ".pgn.bz2")
-        write_file = f'{mount}{month}.pgn.bz2'
+        write_file = f'{month}.pgn.bz2'
         open(write_file, 'wb').write(file.content)
 
         global file_list
@@ -38,7 +37,7 @@ class Pipeline:
 
         print(month, 'data downloaded')
 
-    def write_unzipped_pgn(self, read_file):
+    def write_unzipped_pgn(self, month):
         # read first n lines of zipped file and make new file
 
         # another way to read files commented below. Should be faster by up to 40%, but doesn't have view into lines of a file.
@@ -48,11 +47,8 @@ class Pipeline:
         # newfilepath = filepath[:-4] # assuming the filepath ends with .bz2
         # open(newfilepath, 'wb').write(data) # write a uncompressed file
 
-        global unzipped_file_list
-        unzipped_file_list = []
-
-        write_file = read_file[:-4]
-        unzipped_file_list.append(write_file)
+        read_file = f'{month}.pgn.bz2'
+        write_file = f'{month}.pgn'
 
         # read zipped file and write subset as unzipped file
         with bz2.BZ2File(read_file, "rb") as bzfin:
@@ -62,15 +58,15 @@ class Pipeline:
                     # if i == 50000000: break
                     fout.write(line) 
 
-    def locate_eval_games(self, unzipped_file):
+    def locate_eval_games(self, month):
         # record tuple with location of lines for games with evals
 
         j = 0
         k = 0
         rows_to_read = []
-        global eval_lines_list
         eval_lines_list = []
-        eval_lines_file = f'{unzipped_file[:-4]}_eval_lines.pgn'
+        unzipped_file = f'{month}.pgn'
+        eval_lines_file = f'{month}_eval_lines.pgn'
 
         with open(unzipped_file, 'r') as f:
             with open(eval_lines_file, "w") as eval_out:
@@ -91,24 +87,22 @@ class Pipeline:
         print(f'{unzipped_file} has {k} games with evals')
 
         # create eval file
-        global eval_list
-        eval_list = []
-        eval_file = f'{unzipped_file[:-4]}_eval.pgn'
+        eval_file = f'{month}_eval.pgn'
 
         with open(unzipped_file, 'r') as fin:
             with open(eval_file, "w") as fout:
-                eval_list.append(eval_file)
                 for tupl in rows_to_read:
                     for line in itertools.islice(fin, tupl[0], tupl[1]):
                         fout.write(line)
         print(f'{eval_lines_file} and {eval_file} written')
 
-    def create_games(self, eval_file):
+    def create_games(self, month):
         # create a games file with all games with evals
-
+        
+        eval_file = f'{month}_eval.pgn'
+        games_file = f'{month}_games.csv'
         pgn = open(eval_file)
-        games_file = f'{eval_file[:-9]}_games.csv'
-
+        
         i = 0
         global games_d
         games_d = {}
@@ -141,12 +135,17 @@ class Pipeline:
                     i += 1
         print(f'{games_file} written with {i} rows')
         logging.info(f'{games_file} written with {i} rows')
+        
+        return games_d
 
-    def create_moves(self, eval_lines_file):
+    def create_moves(self, month):
         # create a moves file with all moves from games with evals
 
-        global games_d
-        moves_file = f'{eval_lines_file[:-15]}_moves.csv'
+        # run the create create games method. It will output a dictionary, games_d.
+        self.create_games(month)
+        
+        eval_lines_file = f'{month}_eval_lines.pgn'
+        moves_file = f'{month}_moves.csv'
 
         # moves data
         with open(eval_lines_file, 'r') as f:
@@ -217,11 +216,6 @@ class Pipeline:
             
     def run_pipeline(self, start_year, start_month, end_year, end_month):
 
-        global file_list
-        global unzipped_file_list
-        global eval_lines_list
-        global eval_list
-        global games_d
         start = datetime.datetime(start_year, start_month, 1)
         end = datetime.datetime(end_year, end_month, 1)
         months_range = pd.date_range(start,end, freq='MS').strftime("%Y-%m").tolist()
@@ -229,11 +223,10 @@ class Pipeline:
         # execute extracting and cleaning steps on each month of data
         for month in months_range:
             self.download_data(month)
-            self.write_unzipped_pgn(file_list.pop(0))
-            self.locate_eval_games(unzipped_file_list.pop(0))
-            self.create_games(eval_list.pop(0))
-            self.create_moves(eval_lines_list.pop(0))
-            self.load_to_postgres(month)
+            self.write_unzipped_pgn(month)
+            self.locate_eval_games(month)
+            self.create_moves(month)
+            #self.load_to_postgres(month)
             print("")
 
     def test_logging(self):
