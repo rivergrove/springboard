@@ -19,7 +19,8 @@ logging.basicConfig(filename='logs/log_file.txt', filemode='a', format='%(asctim
 
 class Pipeline:
     def __init__(self):
-        pass
+        self.games_folder = 'games'
+        self.moves_folder = 'moves'
     
     def set_month(self, month):
         self.month = month
@@ -99,101 +100,120 @@ class Pipeline:
                         fout.write(line)
         print(f'{eval_lines_file} and {eval_file} written')
 
-    def create_games(self):
+    def create_games(self, chunk_size):
         # create a games file with all games with evals
         
+        self.games_list = []
         eval_file = f'{self.month}_eval.pgn'
         games_file = f'{self.month}_games.csv'
         pgn = open(eval_file)
         
         i = 0
+        chunk = 1
         global games_d
         games_d = {}
 
         with open(eval_file, 'r') as f:
-            with open(games_file, "w") as fout:
-                # write headers
-                fout.write('game_type,game_id,utc_date,utc_time,white,black,result,white_elo,black_elo,termination\n')
-                while True:
-                    # games data
-                    headers = chess.pgn.read_headers(pgn)
-                    if headers is None:
-                        break
-                    if i % 100000 == 0 & i > 0:
-                        print(f'{i} games read into games file')
+            while True:
+                file = f'{self.games_folder}/{chunk}_{games_file}'
+                with open(file, "w") as fout:
+                    self.games_list.append(file)
+                    # write headers
+                    fout.write('game_type,game_id,utc_date,utc_time,white,black,result,white_elo,black_elo,termination\n')                             
 
-                    game_type = headers['Event'].split(" ")[1]
-                    game_id = headers['Site'].replace("https://lichess.org/", "")
-                    utc_date = headers['UTCDate']
-                    utc_time = headers['UTCTime']
-                    white = headers['White']
-                    black = headers['Black']
-                    result = headers['Result']
-                    white_elo = headers['WhiteElo']
-                    black_elo = headers['BlackElo']
-                    termination = headers['Termination']
+                    for j in range(1,chunk_size+1):
+                        # games data
+                        headers = chess.pgn.read_headers(pgn)
+                        if headers is None:
+                            j -= 1
+                            break
+                        game_type = headers['Event'].split(" ")[1]
+                        game_id = headers['Site'].replace("https://lichess.org/", "")
+                        utc_date = headers['UTCDate']
+                        utc_time = headers['UTCTime']
+                        white = headers['White']
+                        black = headers['Black']
+                        result = headers['Result']
+                        white_elo = headers['WhiteElo']
+                        black_elo = headers['BlackElo']
+                        termination = headers['Termination']
 
-                    fout.write(f'{game_type},{game_id},{utc_date},{utc_time},{white},{black},{result},{white_elo},{black_elo},{termination}\n')
-                    games_d[i] = game_id
-                    i += 1
-        print(f'{games_file} written with {i} rows')
-        logging.info(f'{games_file} written with {i} rows')
+                        fout.write(f'{game_type},{game_id},{utc_date},{utc_time},{white},{black},{result},{white_elo},{black_elo},{termination}\n')
+                        games_d[i] = game_id
+                        i += 1
+                    print(f'{j} games read into games file')
+                chunk += 1
+                if headers is None:
+                    break
+        print(f'games_files written with {i} rows')
+        logging.info(f'games_files written with {i} rows')
         
         return games_d
 
-    def create_moves(self):
+    def create_moves(self, games_chunk_size, moves_chunk_size):
         # create a moves file with all moves from games with evals
 
         # run the create create games method. It will output a dictionary, games_d.
-        self.create_games()
+        self.create_games(games_chunk_size)
         
+        self.moves_list = []
         eval_lines_file = f'{self.month}_eval_lines.pgn'
         moves_file = f'{self.month}_moves.csv'
+        chunk = 1
+        k = 0
 
         # moves data
         with open(eval_lines_file, 'r') as f:
-            with open(moves_file, "w") as fout:
-                # write headers
-                fout.write('game_id,move_number,move,eval,white\n')
-                for i, line in enumerate(f):
-                    if i % 100000 == 0 and i > 0:
-                        print(f'{i} games read into moves file')
+            while True:
+                file = f'{self.moves_folder}/{chunk}_{moves_file}'
+                with open(file, "w") as fout:
+                    self.moves_list.append(file)
+                    # write headers
+                    fout.write('game_id,move_number,move,eval,white\n')
+                    for i, line in enumerate(f,1):
 
-                    # seperate the string by " [0-9]+\. " or " [0-9]+\.\.\. "
-                    split_line = re.split(" [0-9]+\. | [0-9]+\.\.\. ", line)
+                        # seperate the string by " [0-9]+\. " or " [0-9]+\.\.\. "
+                        split_line = re.split(" [0-9]+\. | [0-9]+\.\.\. ", line)
 
-                    # if the file has 200+ moves skip game because we lose evals after 200 moves
-                    if len(split_line) >= 400:
-                        pass
+                        # if the file has 200+ moves skip game because we lose evals after 200 moves
+                        if len(split_line) >= 400:
+                            pass
 
-                    # write to moves table
-                    else:
-                        for j, move in enumerate(split_line):
-                            temp_d = {}
-                            if j == 0: 
-                                move_value = move.split()[1]
-                            else: 
-                                move_value = move.split()[0]
+                        # write to moves table
+                        else:
+                            for j, move in enumerate(split_line):
+                                temp_d = {}
+                                if j == 0: 
+                                    move_value = move.split()[1]
+                                else: 
+                                    move_value = move.split()[0]
 
-                            # checkmate move has no eval value; in this case set to "-"
-                            try:
-                                eval_obj = re.search('\%eval (-?[0-9]+\.[0-9]+|#-?[0-9]+)', move).group(0)
-                            except AttributeError: 
-                                if '#' not in move:
-                                    # removing games where there are no evals, and no checkmate
-                                    eval_obj = 'no_eval'
-                                eval_obj = '-'
+                                # checkmate move has no eval value; in this case set to "-"
+                                try:
+                                    eval_obj = re.search('\%eval (-?[0-9]+\.[0-9]+|#-?[0-9]+)', move).group(0)
+                                except AttributeError: 
+                                    if '#' not in move:
+                                        # removing games where there are no evals, and no checkmate
+                                        eval_obj = 'no_eval'
+                                    eval_obj = '-'
 
-                            eval_value = eval_obj.replace('%eval ', "")
-                            if j % 2 == 0:
-                                white = 1
-                            else:
-                                white = 0
+                                eval_value = eval_obj.replace('%eval ', "")
+                                if j % 2 == 0:
+                                    white = 1
+                                else:
+                                    white = 0
 
-                            # write move to moves file
-                            fout.write(f'{games_d[i]},{j+1},{move_value},{eval_value},{white}\n') 
-        print(f'{moves_file} written')
-        logging.info(f'{moves_file} written')
+                                # write move to moves file
+                                fout.write(f'{games_d[k]},{j+1},{move_value},{eval_value},{white}\n') 
+                        k +=1
+                        if i == moves_chunk_size:
+                            break
+                print(f'{i} games read into moves file')
+                chunk += 1
+                if i != moves_chunk_size:
+                    break
+        print(f'moves_files written')
+        logging.info(f'moves_files written')
 
     def load_to_postgres(self):
         
@@ -202,21 +222,22 @@ class Pipeline:
             return (seq[pos:pos + size] for pos in range(0, len(seq), size))
 
         def insert_with_progress():
-            engine = create_engine('postgresql://postgres:<password>@localhost:5432/anthonyolund')
-            table_names = ['games','moves']
-            for table_name in table_names:
-                file_name = f'{self.month}_{table_name}.csv'
-                df = pd.read_csv(file_name)
-                chunksize = int(len(df) / 100)
-                with tqdm(total=len(df)) as pbar:
-                    for i, cdf in enumerate(chunker(df, chunksize)):
-                        cdf.to_sql(table_name, engine, index=False, if_exists='append')
-                        pbar.update(chunksize)
-                print(f'{file_name} inserted to postgres')
+            engine = create_engine('postgresql://postgres:Virginia0@localhost:5432/anthonyolund')
+            list_lists = [self.games_list, self.moves_list]
+            for table_list in list_lists:
+                for file_name in table_list:
+                    df = pd.read_csv(file_name)
+                    table_name = file_name[-9:-4]
+                    chunksize = int(len(df) / 100)
+                    with tqdm(total=len(df)) as pbar:
+                        for i, cdf in enumerate(chunker(df, chunksize)):
+                            cdf.to_sql(table_name, engine, index=False, if_exists='append')
+                            pbar.update(chunksize)
+                    print(f'{file_name} inserted to postgres')
         
         insert_with_progress()
-
-            
+        logging.info(f'{self.month} data written to postgres')
+ 
     def run_pipeline(self, start_year, start_month, end_year, end_month):
 
         start = datetime.datetime(start_year, start_month, 1)
@@ -229,7 +250,7 @@ class Pipeline:
             self.download_data()
             self.write_unzipped_pgn()
             self.locate_eval_games()
-            self.create_moves()
+            self.create_moves(10000,10000)
             self.load_to_postgres()
             print("")
 
