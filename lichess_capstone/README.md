@@ -5,12 +5,12 @@ Springboard requires an open ended capstone project with the subject of my choos
 
 ## Data Source
 
-Lichess stores [monthly standard game files](https://database.lichess.org/), zipped, in a pgn format, ranging from 15 MB to 27 GB. Each record contains game level data, like who was black and who was white, and move level data like the move, AI evaluation, and time left on the clock. The data set can be anywhere between 10 GB to 500 GB depending on the scope I select. At a glance the data appears relatively challenging to parse; however, many others have successfully used this dataset before (e.g. [popularity and win rate of chess openings](https://github.com/Paul566/chessOpeningStats)), so I can learn from them, and cite them as inspiration for the work I do. I will process the data via batch processing on a monthly time scale.
+Lichess stores [monthly standard game files](https://database.lichess.org/), zipped, in a pgn format, ranging from 15 MB to 27 GB. Each record contains game level data, like who was black and who was white, and move level data like the move, AI evaluation, and time left on the clock. I am aiming for a scope of 100M+ games by running from January 2013 to October 2016. At a glance the data appears relatively challenging to parse; however, many others have successfully used this dataset before (e.g. [popularity and win rate of chess openings](https://github.com/Paul566/chessOpeningStats)), so I can learn from them, and cite them as inspiration for the work I do. I will process the data via batch processing on a monthly time scale.
 
 
 ## My Idea
 
-I would like to analyze the games that contain one or more forced checkmate(s) in one move. I originally wanted to search for 'brilliant' moves, however this was not very interesting given the data. More detailed ideas include:
+I would like to analyze the games that contain one or more forced checkmate(s) in one move. More detailed ideas include:
 - Percent of checkmate in 1 that are found
 - Percent of checkmate in 1 that are found by elo
 - Games where a player lost after checkmate in one. Highest elo example. 
@@ -22,9 +22,8 @@ I would like to analyze the games that contain one or more forced checkmate(s) i
 
 ## My Goals
 
-1. Successfully create a pipeline for 25-500 GB of data
-2. If possible update the pipeline dynamically, monthly with new data
-3. Initially work with a small file, but eventually host the data on the cloud
+1. Successfully create a pipeline for 100M+ games
+2. Include unit testing, logging, and OOP best practices
 4. Visualize and analyze the data to extract meaningful and potentially surprising insights 
 
 
@@ -34,7 +33,6 @@ I would like to analyze the games that contain one or more forced checkmate(s) i
 - Working with large datasets
 - Building pipelines, ideally dynamic ones
 - Extracting insights from data
-- Cloud data storage
 
 
 ## Output
