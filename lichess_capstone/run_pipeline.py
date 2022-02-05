@@ -24,20 +24,19 @@ class Pipeline:
     
     def set_month(self, month):
         self.month = month
-    
+
+    def get_month_of_data(self, month):
+        return requests.get("https://database.lichess.org/standard/lichess_db_standard_rated_" + month + ".pgn.bz2")
+   
     def download_data(self):
         """
         Pull lichess games for selected month. 
         Game data starts Jan 2013.
         """
 
-        file = requests.get("https://database.lichess.org/standard/lichess_db_standard_rated_" + self.month + ".pgn.bz2")
+        file = self.get_month_of_data(self.month)
         write_file = f'{self.month}.pgn.bz2'
         open(write_file, 'wb').write(file.content)
-
-        global file_list
-        file_list = []
-        file_list.append(write_file)
 
         print(self.month, 'data downloaded')
 
