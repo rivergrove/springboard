@@ -1,0 +1,44 @@
+200 games read into games file
+200 games read into games file
+118 games read into games file
+games_files written with 518 rows
+200 games read into games file
+200 games read into games file
+118 games read into games file
+games_files written with 518 rows
+200 games read into moves file
+200 games read into moves file
+118 games read into moves file
+moves_files written
+518 games read into games file
+games_files written with 518 rows
+518 games read into moves file
+moves_files written
+games/1_2013-01_games.csv inserted to postgres
+moves/1_2013-01_moves.csv inserted to postgres
+Connecting to the PostgreSQL database...
+Connecting to the PostgreSQL database...
+Connecting to the PostgreSQL database...
+Connecting to the PostgreSQL database...
+2013-01.pgn has 518 games with evals
+2013-01_eval_lines.pgn and 2013-01_eval.pgn written
+2013-01 data downloaded
+1000000 lines of 2013-01.pgn.bz2 read
+2000000 lines of 2013-01.pgn.bz2 read
+
+/Users/anthonyolund/Dropbox/Code/springboard/spark_test/openended_capstone/test_run_pipeline.py:39: ResourceWarning: unclosed file <_io.TextIOWrapper name='2013-01_eval.pgn' mode='r' encoding='UTF-8'>
+  p.create_games(200)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+./Users/anthonyolund/Dropbox/Code/springboard/spark_test/openended_capstone/run_pipeline.py:156: ResourceWarning: unclosed file <_io.TextIOWrapper name='2013-01_eval.pgn' mode='r' encoding='UTF-8'>
+  self.create_games(games_chunk_size)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+520it [00:00, 801.81it/s]
+34744it [00:01, 29568.32it/s]
+../Users/anthonyolund/Dropbox/Code/springboard/spark_test/openended_capstone/run_pipeline.py:39: ResourceWarning: unclosed file <_io.BufferedWriter name='2013-01.pgn.bz2'>
+  open(write_file, 'wb').write(file.content)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+.
+----------------------------------------------------------------------
+Ran 6 tests in 20.543s
+
+OK
