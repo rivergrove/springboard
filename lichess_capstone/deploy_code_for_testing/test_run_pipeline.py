@@ -67,7 +67,7 @@ class TestPipeline(TestCase):
                     host="localhost",
                     database="anthonyolund",
                     user="postgres",
-                    password="Virginia0")
+                    password="<pw>")
             
             # create a cursor
             cur = conn.cursor()

@@ -221,7 +221,7 @@ class Pipeline:
             return (seq[pos:pos + size] for pos in range(0, len(seq), size))
 
         def insert_with_progress():
-            engine = create_engine('postgresql://postgres:Virginia0@localhost:5432/anthonyolund')
+            engine = create_engine('postgresql://postgres:<pw>@localhost:5432/anthonyolund')
             list_lists = [self.games_list, self.moves_list]
             for table_list in list_lists:
                 for file_name in table_list:
