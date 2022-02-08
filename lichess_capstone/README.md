@@ -1,6 +1,6 @@
 ## Overview
 
-For my open-ended capstone, I have selected to process 106 million [lichess](https://lichess.org/) games and derive insights on forced checkmates. The parsed data contains over 14 million games with evaluations and over 900 milllion rows of move level data.
+For my open-ended capstone, I have selected to process 106 million [lichess](https://lichess.org/) games and derive insights on forced checkmates. The parsed data contains over 14 million games with move-level evaluations and over 900 milllion rows of move level data.
 
 
 ## Data Source
