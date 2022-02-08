@@ -1,0 +1,383 @@
+23:31:27,764 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): database.lichess.org:443
+23:31:28,476 urllib3.connectionpool DEBUG https://database.lichess.org:443 "GET /standard/lichess_db_standard_rated_2013-04.pgn.bz2 HTTP/1.1" 200 21117254
+23:31:30,501 root INFO 2013-04 data downloaded
+23:31:36,34 root INFO 2013-04 file unzipped
+23:31:37,204 root INFO 2013-04_eval_lines.pgn and 2013-04.pgn written
+23:31:37,250 root INFO 2013-04 games_files written with 659 rows
+23:31:37,342 root INFO 2013-04 moves_files written
+23:37:21,690 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): database.lichess.org:443
+23:37:22,377 urllib3.connectionpool DEBUG https://database.lichess.org:443 "GET /standard/lichess_db_standard_rated_2013-04.pgn.bz2 HTTP/1.1" 200 21117254
+23:37:24,362 root INFO 2013-04 data downloaded
+23:37:29,936 root INFO 2013-04 file unzipped
+23:37:31,101 root INFO 2013-04_eval_lines.pgn and 2013-04.pgn written
+23:37:31,147 root INFO 2013-04 games_files written with 659 rows
+23:37:31,230 root INFO 2013-04 moves_files written
+23:37:33,661 root INFO 2013-04 data written to postgres
+23:39:45,862 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): database.lichess.org:443
+23:39:46,573 urllib3.connectionpool DEBUG https://database.lichess.org:443 "GET /standard/lichess_db_standard_rated_2013-01.pgn.bz2 HTTP/1.1" 200 16095539
+23:39:48,405 root INFO 2013-01 data downloaded
+23:39:52,693 root INFO 2013-01 file unzipped
+23:39:53,577 root INFO 2013-01_eval_lines.pgn and 2013-01.pgn written
+23:39:53,614 root INFO 2013-01 games_files written with 518 rows
+23:39:53,682 root INFO 2013-01 moves_files written
+23:39:55,416 root INFO 2013-01 data written to postgres
+23:39:55,419 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): database.lichess.org:443
+23:39:56,74 urllib3.connectionpool DEBUG https://database.lichess.org:443 "GET /standard/lichess_db_standard_rated_2013-02.pgn.bz2 HTTP/1.1" 200 16434455
+23:40:07,601 root INFO 2013-02 data downloaded
+23:40:12,39 root INFO 2013-02 file unzipped
+23:40:12,956 root INFO 2013-02_eval_lines.pgn and 2013-02.pgn written
+23:40:12,990 root INFO 2013-02 games_files written with 463 rows
+23:40:13,50 root INFO 2013-02 moves_files written
+23:40:14,746 root INFO 2013-02 data written to postgres
+23:40:14,752 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): database.lichess.org:443
+23:40:15,429 urllib3.connectionpool DEBUG https://database.lichess.org:443 "GET /standard/lichess_db_standard_rated_2013-03.pgn.bz2 HTTP/1.1" 200 21349532
+23:40:17,582 root INFO 2013-03 data downloaded
+23:40:23,119 root INFO 2013-03 file unzipped
+23:40:24,284 root INFO 2013-03_eval_lines.pgn and 2013-03.pgn written
+23:40:24,332 root INFO 2013-03 games_files written with 647 rows
+23:40:24,422 root INFO 2013-03 moves_files written
+23:40:26,601 root INFO 2013-03 data written to postgres
+23:40:26,605 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): database.lichess.org:443
+23:40:27,266 urllib3.connectionpool DEBUG https://database.lichess.org:443 "GET /standard/lichess_db_standard_rated_2013-04.pgn.bz2 HTTP/1.1" 200 21117254
+23:40:29,234 root INFO 2013-04 data downloaded
+23:40:34,898 root INFO 2013-04 file unzipped
+23:40:36,80 root INFO 2013-04_eval_lines.pgn and 2013-04.pgn written
+23:40:36,130 root INFO 2013-04 games_files written with 659 rows
+23:40:36,226 root INFO 2013-04 moves_files written
+23:40:38,634 root INFO 2013-04 data written to postgres
+23:40:38,644 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): database.lichess.org:443
+23:40:39,328 urllib3.connectionpool DEBUG https://database.lichess.org:443 "GET /standard/lichess_db_standard_rated_2013-05.pgn.bz2 HTTP/1.1" 200 24041045
+23:40:41,615 root INFO 2013-05 data downloaded
+23:40:47,898 root INFO 2013-05 file unzipped
+23:40:49,249 root INFO 2013-05_eval_lines.pgn and 2013-05.pgn written
+23:40:49,316 root INFO 2013-05 games_files written with 943 rows
+23:40:49,437 root INFO 2013-05 moves_files written
+23:40:52,636 root INFO 2013-05 data written to postgres
+23:40:52,640 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): database.lichess.org:443
+23:40:53,289 urllib3.connectionpool DEBUG https://database.lichess.org:443 "GET /standard/lichess_db_standard_rated_2013-06.pgn.bz2 HTTP/1.1" 200 29830301
+23:40:55,584 root INFO 2013-06 data downloaded
+23:41:04,9 root INFO 2013-06 file unzipped
+23:41:06,561 root INFO 2013-06_eval_lines.pgn and 2013-06.pgn written
+23:41:06,638 root INFO 2013-06 games_files written with 965 rows
+23:41:06,869 root INFO 2013-06 moves_files written
+23:41:12,86 root INFO 2013-06 data written to postgres
+23:41:12,116 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): database.lichess.org:443
+23:41:12,791 urllib3.connectionpool DEBUG https://database.lichess.org:443 "GET /standard/lichess_db_standard_rated_2013-07.pgn.bz2 HTTP/1.1" 200 38994300
+23:41:15,544 root INFO 2013-07 data downloaded
+23:41:27,376 root INFO 2013-07 file unzipped
+23:41:29,675 root INFO 2013-07_eval_lines.pgn and 2013-07.pgn written
+23:41:29,778 root INFO 2013-07 games_files written with 1351 rows
+23:41:29,957 root INFO 2013-07 moves_files written
+23:41:35,985 root INFO 2013-07 data written to postgres
+23:41:36,12 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): database.lichess.org:443
+23:41:36,702 urllib3.connectionpool DEBUG https://database.lichess.org:443 "GET /standard/lichess_db_standard_rated_2013-08.pgn.bz2 HTTP/1.1" 200 43321188
+23:42:15,104 root INFO 2013-08 data downloaded
+23:42:26,770 root INFO 2013-08 file unzipped
+23:42:29,321 root INFO 2013-08_eval_lines.pgn and 2013-08.pgn written
+23:42:29,477 root INFO 2013-08 games_files written with 1652 rows
+23:42:29,701 root INFO 2013-08 moves_files written
+23:42:37,301 root INFO 2013-08 data written to postgres
+23:42:37,330 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): database.lichess.org:443
+23:42:38,7 urllib3.connectionpool DEBUG https://database.lichess.org:443 "GET /standard/lichess_db_standard_rated_2013-09.pgn.bz2 HTTP/1.1" 200 42817534
+23:42:41,116 root INFO 2013-09 data downloaded
+23:42:52,824 root INFO 2013-09 file unzipped
+23:42:55,498 root INFO 2013-09_eval_lines.pgn and 2013-09.pgn written
+23:42:55,630 root INFO 2013-09 games_files written with 1717 rows
+23:42:55,858 root INFO 2013-09 moves_files written
+23:43:03,95 root INFO 2013-09 data written to postgres
+23:43:03,128 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): database.lichess.org:443
+23:43:03,816 urllib3.connectionpool DEBUG https://database.lichess.org:443 "GET /standard/lichess_db_standard_rated_2013-10.pgn.bz2 HTTP/1.1" 200 56695615
+23:43:42,344 root INFO 2013-10 data downloaded
+23:44:00,565 root INFO 2013-10 file unzipped
+23:44:04,81 root INFO 2013-10_eval_lines.pgn and 2013-10.pgn written
+23:44:04,868 root INFO 2013-10 games_files written with 9498 rows
+23:44:06,344 root INFO 2013-10 moves_files written
+23:44:58,941 root INFO 2013-10 data written to postgres
+23:44:59,20 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): database.lichess.org:443
+23:44:59,700 urllib3.connectionpool DEBUG https://database.lichess.org:443 "GET /standard/lichess_db_standard_rated_2013-11.pgn.bz2 HTTP/1.1" 200 69349246
+23:45:03,955 root INFO 2013-11 data downloaded
+23:45:32,692 root INFO 2013-11 file unzipped
+23:45:37,241 root INFO 2013-11_eval_lines.pgn and 2013-11.pgn written
+23:45:38,827 root INFO 2013-11 games_files written with 19926 rows
+23:45:41,805 root INFO 2013-11 moves_files written
+23:47:29,249 root INFO 2013-11 data written to postgres
+23:47:29,301 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): database.lichess.org:443
+23:47:30,37 urllib3.connectionpool DEBUG https://database.lichess.org:443 "GET /standard/lichess_db_standard_rated_2013-12.pgn.bz2 HTTP/1.1" 200 82620266
+23:47:35,170 root INFO 2013-12 data downloaded
+23:47:59,969 root INFO 2013-12 file unzipped
+23:48:04,826 root INFO 2013-12_eval_lines.pgn and 2013-12.pgn written
+23:48:06,915 root INFO 2013-12 games_files written with 25432 rows
+23:48:10,620 root INFO 2013-12 moves_files written
+23:50:18,632 root INFO 2013-12 data written to postgres
+23:50:19,71 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): database.lichess.org:443
+23:50:19,753 urllib3.connectionpool DEBUG https://database.lichess.org:443 "GET /standard/lichess_db_standard_rated_2014-01.pgn.bz2 HTTP/1.1" 200 100440353
+23:50:25,370 root INFO 2014-01 data downloaded
+23:50:50,977 root INFO 2014-01 file unzipped
+23:50:56,613 root INFO 2014-01_eval_lines.pgn and 2014-01.pgn written
+23:50:58,764 root INFO 2014-01 games_files written with 30336 rows
+23:51:02,886 root INFO 2014-01 moves_files written
+23:53:14,454 root INFO 2014-01 data written to postgres
+23:53:14,468 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): database.lichess.org:443
+23:53:15,155 urllib3.connectionpool DEBUG https://database.lichess.org:443 "GET /standard/lichess_db_standard_rated_2014-02.pgn.bz2 HTTP/1.1" 200 101492128
+23:53:20,911 root INFO 2014-02 data downloaded
+23:53:47,846 root INFO 2014-02 file unzipped
+23:53:53,758 root INFO 2014-02_eval_lines.pgn and 2014-02.pgn written
+23:53:56,492 root INFO 2014-02 games_files written with 37375 rows
+23:54:01,764 root INFO 2014-02 moves_files written
+23:56:23,861 root INFO 2014-02 data written to postgres
+23:56:23,909 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): database.lichess.org:443
+23:56:24,583 urllib3.connectionpool DEBUG https://database.lichess.org:443 "GET /standard/lichess_db_standard_rated_2014-03.pgn.bz2 HTTP/1.1" 200 116138406
+23:56:30,775 root INFO 2014-03 data downloaded
+23:56:59,474 root INFO 2014-03 file unzipped
+23:57:05,741 root INFO 2014-03_eval_lines.pgn and 2014-03.pgn written
+23:57:08,681 root INFO 2014-03 games_files written with 42237 rows
+23:57:14,295 root INFO 2014-03 moves_files written
+23:59:55,486 root INFO 2014-03 data written to postgres
+23:59:55,496 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): database.lichess.org:443
+23:59:56,181 urllib3.connectionpool DEBUG https://database.lichess.org:443 "GET /standard/lichess_db_standard_rated_2014-04.pgn.bz2 HTTP/1.1" 200 122487621
+00:00:03,36 root INFO 2014-04 data downloaded
+00:00:32,901 root INFO 2014-04 file unzipped
+00:00:39,477 root INFO 2014-04_eval_lines.pgn and 2014-04.pgn written
+00:00:43,774 root INFO 2014-04 games_files written with 59198 rows
+00:00:51,744 root INFO 2014-04 moves_files written
+00:05:02,177 root INFO 2014-04 data written to postgres
+00:05:02,223 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): database.lichess.org:443
+00:05:02,906 urllib3.connectionpool DEBUG https://database.lichess.org:443 "GET /standard/lichess_db_standard_rated_2014-05.pgn.bz2 HTTP/1.1" 200 151021058
+00:05:10,981 root INFO 2014-05 data downloaded
+00:05:47,102 root INFO 2014-05 file unzipped
+00:05:55,45 root INFO 2014-05_eval_lines.pgn and 2014-05.pgn written
+00:06:04,842 root INFO 2014-05 games_files written with 139536 rows
+00:06:24,574 root INFO 2014-05 moves_files written
+00:16:15,471 root INFO 2014-05 data written to postgres
+00:16:15,556 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): database.lichess.org:443
+00:16:16,383 urllib3.connectionpool DEBUG https://database.lichess.org:443 "GET /standard/lichess_db_standard_rated_2014-06.pgn.bz2 HTTP/1.1" 200 160122456
+00:16:25,73 root INFO 2014-06 data downloaded
+00:17:03,433 root INFO 2014-06 file unzipped
+00:17:11,898 root INFO 2014-06_eval_lines.pgn and 2014-06.pgn written
+00:17:22,855 root INFO 2014-06 games_files written with 154026 rows
+00:17:43,828 root INFO 2014-06 moves_files written
+00:30:14,388 root INFO 2014-06 data written to postgres
+00:30:14,410 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): database.lichess.org:443
+00:30:15,119 urllib3.connectionpool DEBUG https://database.lichess.org:443 "GET /standard/lichess_db_standard_rated_2014-07.pgn.bz2 HTTP/1.1" 200 176048934
+00:30:24,818 root INFO 2014-07 data downloaded
+00:31:06,91 root INFO 2014-07 file unzipped
+00:31:15,854 root INFO 2014-07_eval_lines.pgn and 2014-07.pgn written
+00:31:28,19 root INFO 2014-07 games_files written with 175033 rows
+00:31:51,237 root INFO 2014-07 moves_files written
+00:44:43,439 root INFO 2014-07 data written to postgres
+00:44:43,468 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): database.lichess.org:443
+00:44:44,150 urllib3.connectionpool DEBUG https://database.lichess.org:443 "GET /standard/lichess_db_standard_rated_2014-08.pgn.bz2 HTTP/1.1" 200 170015032
+00:44:53,536 root INFO 2014-08 data downloaded
+00:45:33,408 root INFO 2014-08 file unzipped
+00:45:42,240 root INFO 2014-08_eval_lines.pgn and 2014-08.pgn written
+00:45:54,158 root INFO 2014-08 games_files written with 169531 rows
+00:46:16,502 root INFO 2014-08 moves_files written
+00:58:28,864 root INFO 2014-08 data written to postgres
+00:58:28,900 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): database.lichess.org:443
+00:58:29,595 urllib3.connectionpool DEBUG https://database.lichess.org:443 "GET /standard/lichess_db_standard_rated_2014-09.pgn.bz2 HTTP/1.1" 200 158936847
+00:58:38,296 root INFO 2014-09 data downloaded
+00:59:16,188 root INFO 2014-09 file unzipped
+00:59:24,616 root INFO 2014-09_eval_lines.pgn and 2014-09.pgn written
+00:59:33,183 root INFO 2014-09 games_files written with 119574 rows
+00:59:48,915 root INFO 2014-09 moves_files written
+01:09:15,355 root INFO 2014-09 data written to postgres
+01:09:15,999 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): database.lichess.org:443
+01:09:16,871 urllib3.connectionpool DEBUG https://database.lichess.org:443 "GET /standard/lichess_db_standard_rated_2014-10.pgn.bz2 HTTP/1.1" 200 181551843
+01:09:26,862 root INFO 2014-10 data downloaded
+01:10:10,163 root INFO 2014-10 file unzipped
+01:10:19,678 root INFO 2014-10_eval_lines.pgn and 2014-10.pgn written
+01:10:30,560 root INFO 2014-10 games_files written with 157339 rows
+01:10:51,337 root INFO 2014-10 moves_files written
+01:24:15,36 root INFO 2014-10 data written to postgres
+01:24:15,91 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): database.lichess.org:443
+01:24:15,821 urllib3.connectionpool DEBUG https://database.lichess.org:443 "GET /standard/lichess_db_standard_rated_2014-11.pgn.bz2 HTTP/1.1" 200 200923269
+01:24:26,739 root INFO 2014-11 data downloaded
+01:25:14,775 root INFO 2014-11 file unzipped
+01:25:25,237 root INFO 2014-11_eval_lines.pgn and 2014-11.pgn written
+01:25:38,859 root INFO 2014-11 games_files written with 189903 rows
+01:26:04,726 root INFO 2014-11 moves_files written
+01:42:24,993 root INFO 2014-11 data written to postgres
+01:42:25,46 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): database.lichess.org:443
+01:42:25,729 urllib3.connectionpool DEBUG https://database.lichess.org:443 "GET /standard/lichess_db_standard_rated_2014-12.pgn.bz2 HTTP/1.1" 200 228287772
+01:42:37,674 root INFO 2014-12 data downloaded
+01:43:30,676 root INFO 2014-12 file unzipped
+01:43:42,928 root INFO 2014-12_eval_lines.pgn and 2014-12.pgn written
+01:44:00,67 root INFO 2014-12 games_files written with 245794 rows
+01:44:32,803 root INFO 2014-12 moves_files written
+02:05:40,432 root INFO 2014-12 data written to postgres
+02:05:40,501 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): database.lichess.org:443
+02:05:41,208 urllib3.connectionpool DEBUG https://database.lichess.org:443 "GET /standard/lichess_db_standard_rated_2015-01.pgn.bz2 HTTP/1.1" 200 251918769
+02:05:54,312 root INFO 2015-01 data downloaded
+02:06:52,675 root INFO 2015-01 file unzipped
+02:07:05,499 root INFO 2015-01_eval_lines.pgn and 2015-01.pgn written
+02:07:23,349 root INFO 2015-01 games_files written with 261408 rows
+02:07:57,147 root INFO 2015-01 moves_files written
+02:29:48,979 root INFO 2015-01 data written to postgres
+02:29:49,755 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): database.lichess.org:443
+02:29:50,863 urllib3.connectionpool DEBUG https://database.lichess.org:443 "GET /standard/lichess_db_standard_rated_2015-02.pgn.bz2 HTTP/1.1" 200 250268037
+02:30:04,45 root INFO 2015-02 data downloaded
+02:31:02,177 root INFO 2015-02 file unzipped
+02:31:15,179 root INFO 2015-02_eval_lines.pgn and 2015-02.pgn written
+02:31:32,653 root INFO 2015-02 games_files written with 254940 rows
+02:32:05,596 root INFO 2015-02 moves_files written
+02:53:42,53 root INFO 2015-02 data written to postgres
+02:53:42,75 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): database.lichess.org:443
+02:53:42,760 urllib3.connectionpool DEBUG https://database.lichess.org:443 "GET /standard/lichess_db_standard_rated_2015-03.pgn.bz2 HTTP/1.1" 200 290071695
+02:53:57,720 root INFO 2015-03 data downloaded
+02:55:06,492 root INFO 2015-03 file unzipped
+02:55:21,880 root INFO 2015-03_eval_lines.pgn and 2015-03.pgn written
+02:55:39,208 root INFO 2015-03 games_files written with 243578 rows
+02:56:10,507 root INFO 2015-03 moves_files written
+03:16:42,494 root INFO 2015-03 data written to postgres
+03:16:42,516 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): database.lichess.org:443
+03:16:43,183 urllib3.connectionpool DEBUG https://database.lichess.org:443 "GET /standard/lichess_db_standard_rated_2015-04.pgn.bz2 HTTP/1.1" 200 282995691
+03:16:57,482 root INFO 2015-04 data downloaded
+03:18:04,836 root INFO 2015-04 file unzipped
+03:18:19,692 root INFO 2015-04_eval_lines.pgn and 2015-04.pgn written
+03:18:34,763 root INFO 2015-04 games_files written with 216410 rows
+03:19:03,126 root INFO 2015-04 moves_files written
+03:37:46,984 root INFO 2015-04 data written to postgres
+03:37:47,34 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): database.lichess.org:443
+03:37:47,745 urllib3.connectionpool DEBUG https://database.lichess.org:443 "GET /standard/lichess_db_standard_rated_2015-05.pgn.bz2 HTTP/1.1" 200 348461747
+03:38:05,907 root INFO 2015-05 data downloaded
+03:39:27,226 root INFO 2015-05 file unzipped
+03:39:45,261 root INFO 2015-05_eval_lines.pgn and 2015-05.pgn written
+03:40:07,270 root INFO 2015-05 games_files written with 313218 rows
+03:40:48,419 root INFO 2015-05 moves_files written
+04:08:15,244 root INFO 2015-05 data written to postgres
+04:08:15,646 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): database.lichess.org:443
+04:08:16,716 urllib3.connectionpool DEBUG https://database.lichess.org:443 "GET /standard/lichess_db_standard_rated_2015-06.pgn.bz2 HTTP/1.1" 200 383276427
+04:08:35,917 root INFO 2015-06 data downloaded
+04:10:07,692 root INFO 2015-06 file unzipped
+04:10:27,437 root INFO 2015-06_eval_lines.pgn and 2015-06.pgn written
+04:10:53,330 root INFO 2015-06 games_files written with 372269 rows
+04:11:42,566 root INFO 2015-06 moves_files written
+04:44:04,966 root INFO 2015-06 data written to postgres
+04:44:04,986 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): database.lichess.org:443
+04:44:05,692 urllib3.connectionpool DEBUG https://database.lichess.org:443 "GET /standard/lichess_db_standard_rated_2015-07.pgn.bz2 HTTP/1.1" 200 426177053
+04:44:27,346 root INFO 2015-07 data downloaded
+04:46:05,607 root INFO 2015-07 file unzipped
+04:46:26,922 root INFO 2015-07_eval_lines.pgn and 2015-07.pgn written
+04:47:02,215 root INFO 2015-07 games_files written with 516489 rows
+04:48:07,972 root INFO 2015-07 moves_files written
+05:32:11,70 root INFO 2015-07 data written to postgres
+05:32:11,483 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): database.lichess.org:443
+05:32:12,485 urllib3.connectionpool DEBUG https://database.lichess.org:443 "GET /standard/lichess_db_standard_rated_2015-08.pgn.bz2 HTTP/1.1" 200 446517512
+05:32:35,181 root INFO 2015-08 data downloaded
+05:34:18,486 root INFO 2015-08 file unzipped
+05:34:41,188 root INFO 2015-08_eval_lines.pgn and 2015-08.pgn written
+05:35:16,424 root INFO 2015-08 games_files written with 531631 rows
+05:36:20,787 root INFO 2015-08 moves_files written
+06:19:30,610 root INFO 2015-08 data written to postgres
+06:19:30,628 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): database.lichess.org:443
+06:19:31,329 urllib3.connectionpool DEBUG https://database.lichess.org:443 "GET /standard/lichess_db_standard_rated_2015-09.pgn.bz2 HTTP/1.1" 200 485446091
+06:19:55,805 root INFO 2015-09 data downloaded
+06:21:48,762 root INFO 2015-09 file unzipped
+06:22:13,709 root INFO 2015-09_eval_lines.pgn and 2015-09.pgn written
+06:22:50,918 root INFO 2015-09 games_files written with 562502 rows
+06:23:57,528 root INFO 2015-09 moves_files written
+07:09:06,171 root INFO 2015-09 data written to postgres
+07:09:06,682 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): database.lichess.org:443
+07:09:07,826 urllib3.connectionpool DEBUG https://database.lichess.org:443 "GET /standard/lichess_db_standard_rated_2015-10.pgn.bz2 HTTP/1.1" 200 575505436
+07:09:37,893 root INFO 2015-10 data downloaded
+07:11:51,758 root INFO 2015-10 file unzipped
+07:12:21,693 root INFO 2015-10_eval_lines.pgn and 2015-10.pgn written
+07:13:03,941 root INFO 2015-10 games_files written with 638764 rows
+07:14:19,633 root INFO 2015-10 moves_files written
+08:06:50,766 root INFO 2015-10 data written to postgres
+08:06:50,824 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): database.lichess.org:443
+08:06:51,513 urllib3.connectionpool DEBUG https://database.lichess.org:443 "GET /standard/lichess_db_standard_rated_2015-11.pgn.bz2 HTTP/1.1" 200 595738549
+08:07:23,340 root INFO 2015-11 data downloaded
+08:09:42,604 root INFO 2015-11 file unzipped
+08:10:13,44 root INFO 2015-11_eval_lines.pgn and 2015-11.pgn written
+08:10:52,530 root INFO 2015-11 games_files written with 586999 rows
+08:12:03,596 root INFO 2015-11 moves_files written
+08:59:54,4 root INFO 2015-11 data written to postgres
+08:59:54,531 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): database.lichess.org:443
+08:59:55,398 urllib3.connectionpool DEBUG https://database.lichess.org:443 "GET /standard/lichess_db_standard_rated_2015-12.pgn.bz2 HTTP/1.1" 200 678816998
+09:00:29,458 root INFO 2015-12 data downloaded
+09:03:08,575 root INFO 2015-12 file unzipped
+09:03:43,62 root INFO 2015-12_eval_lines.pgn and 2015-12.pgn written
+09:04:23,484 root INFO 2015-12 games_files written with 613950 rows
+09:05:36,755 root INFO 2015-12 moves_files written
+09:56:30,333 root INFO 2015-12 data written to postgres
+09:56:30,359 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): database.lichess.org:443
+09:56:31,40 urllib3.connectionpool DEBUG https://database.lichess.org:443 "GET /standard/lichess_db_standard_rated_2016-01.pgn.bz2 HTTP/1.1" 200 781121114
+09:57:11,425 root INFO 2016-01 data downloaded
+10:00:13,437 root INFO 2016-01 file unzipped
+10:00:53,513 root INFO 2016-01_eval_lines.pgn and 2016-01.pgn written
+10:01:39,932 root INFO 2016-01 games_files written with 702897 rows
+10:03:03,965 root INFO 2016-01 moves_files written
+11:01:32,462 root INFO 2016-01 data written to postgres
+11:01:32,728 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): database.lichess.org:443
+11:01:33,588 urllib3.connectionpool DEBUG https://database.lichess.org:443 "GET /standard/lichess_db_standard_rated_2016-02.pgn.bz2 HTTP/1.1" 200 815059890
+11:02:15,220 root INFO 2016-02 data downloaded
+11:05:26,68 root INFO 2016-02 file unzipped
+11:06:07,782 root INFO 2016-02_eval_lines.pgn and 2016-02.pgn written
+11:06:54,529 root INFO 2016-02 games_files written with 708978 rows
+11:08:19,435 root INFO 2016-02 moves_files written
+12:08:30,297 root INFO 2016-02 data written to postgres
+12:08:30,405 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): database.lichess.org:443
+12:08:31,147 urllib3.connectionpool DEBUG https://database.lichess.org:443 "GET /standard/lichess_db_standard_rated_2016-03.pgn.bz2 HTTP/1.1" 200 936751258
+12:09:22,239 root INFO 2016-03 data downloaded
+12:13:06,325 root INFO 2016-03 file unzipped
+12:13:55,787 root INFO 2016-03_eval_lines.pgn and 2016-03.pgn written
+12:14:49,632 root INFO 2016-03 games_files written with 795852 rows
+12:16:26,786 root INFO 2016-03 moves_files written
+13:27:42,972 root INFO 2016-03 data written to postgres
+13:27:43,325 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): database.lichess.org:443
+13:27:44,214 urllib3.connectionpool DEBUG https://database.lichess.org:443 "GET /standard/lichess_db_standard_rated_2016-04.pgn.bz2 HTTP/1.1" 200 954125973
+13:28:34,80 root INFO 2016-04 data downloaded
+13:32:20,530 root INFO 2016-04 file unzipped
+13:33:09,885 root INFO 2016-04_eval_lines.pgn and 2016-04.pgn written
+13:34:02,864 root INFO 2016-04 games_files written with 783488 rows
+13:35:39,968 root INFO 2016-04 moves_files written
+14:43:18,765 root INFO 2016-04 data written to postgres
+14:43:19,29 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): database.lichess.org:443
+14:43:20,224 urllib3.connectionpool DEBUG https://database.lichess.org:443 "GET /standard/lichess_db_standard_rated_2016-05.pgn.bz2 HTTP/1.1" 200 998314927
+14:44:14,347 root INFO 2016-05 data downloaded
+14:48:11,330 root INFO 2016-05 file unzipped
+14:49:03,122 root INFO 2016-05_eval_lines.pgn and 2016-05.pgn written
+14:49:56,73 root INFO 2016-05 games_files written with 784681 rows
+14:51:31,105 root INFO 2016-05 moves_files written
+16:02:45,118 root INFO 2016-05 data written to postgres
+16:02:45,494 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): database.lichess.org:443
+16:02:46,369 urllib3.connectionpool DEBUG https://database.lichess.org:443 "GET /standard/lichess_db_standard_rated_2016-06.pgn.bz2 HTTP/1.1" 200 985816948
+16:03:47,640 root INFO 2016-06 data downloaded
+16:07:46,46 root INFO 2016-06 file unzipped
+16:08:39,45 root INFO 2016-06_eval_lines.pgn and 2016-06.pgn written
+16:09:31,751 root INFO 2016-06 games_files written with 765433 rows
+16:11:05,719 root INFO 2016-06 moves_files written
+17:17:40,261 root INFO 2016-06 data written to postgres
+17:17:40,325 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): database.lichess.org:443
+17:17:41,44 urllib3.connectionpool DEBUG https://database.lichess.org:443 "GET /standard/lichess_db_standard_rated_2016-07.pgn.bz2 HTTP/1.1" 200 1013414444
+17:18:38,230 root INFO 2016-07 data downloaded
+17:22:39,124 root INFO 2016-07 file unzipped
+17:23:31,146 root INFO 2016-07_eval_lines.pgn and 2016-07.pgn written
+17:24:25,384 root INFO 2016-07 games_files written with 800496 rows
+17:26:02,13 root INFO 2016-07 moves_files written
+18:35:20,44 root INFO 2016-07 data written to postgres
+18:35:20,366 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): database.lichess.org:443
+18:35:21,394 urllib3.connectionpool DEBUG https://database.lichess.org:443 "GET /standard/lichess_db_standard_rated_2016-08.pgn.bz2 HTTP/1.1" 200 1044267068
+18:36:17,753 root INFO 2016-08 data downloaded
+18:40:21,634 root INFO 2016-08 file unzipped
+18:41:15,149 root INFO 2016-08_eval_lines.pgn and 2016-08.pgn written
+18:42:08,237 root INFO 2016-08 games_files written with 791763 rows
+18:43:44,664 root INFO 2016-08 moves_files written
+19:52:00,433 root INFO 2016-08 data written to postgres
+19:52:00,922 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): database.lichess.org:443
+19:52:01,940 urllib3.connectionpool DEBUG https://database.lichess.org:443 "GET /standard/lichess_db_standard_rated_2016-09.pgn.bz2 HTTP/1.1" 200 1095382198
+19:53:06,955 root INFO 2016-09 data downloaded
+19:57:23,226 root INFO 2016-09 file unzipped
+19:58:19,16 root INFO 2016-09_eval_lines.pgn and 2016-09.pgn written
+19:59:13,158 root INFO 2016-09 games_files written with 813381 rows
+20:00:51,988 root INFO 2016-09 moves_files written
+21:20:55,441 root INFO 2016-09 data written to postgres
+21:20:55,738 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): database.lichess.org:443
+21:20:56,659 urllib3.connectionpool DEBUG https://database.lichess.org:443 "GET /standard/lichess_db_standard_rated_2016-10.pgn.bz2 HTTP/1.1" 200 1221284936
+21:22:10,731 root INFO 2016-10 data downloaded
+21:27:01,260 root INFO 2016-10 file unzipped
+21:28:04,588 root INFO 2016-10_eval_lines.pgn and 2016-10.pgn written
+21:29:06,43 root INFO 2016-10 games_files written with 899261 rows
+21:30:55,545 root INFO 2016-10 moves_files written
+22:54:40,786 root INFO 2016-10 data written to postgres
