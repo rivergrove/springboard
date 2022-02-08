@@ -10,6 +10,7 @@ create table games (
     , white_elo int
     , black_elo int
     , termination varchar(50)
+    , month varchar(10)
 );
 create table moves (
     game_id varchar(10) not null
@@ -17,5 +18,6 @@ create table moves (
     , move varchar(20)
     , eval varchar(20)
     , white int
+    , month varchar(10)
     , primary key (game_id, move_number)
 ); 
