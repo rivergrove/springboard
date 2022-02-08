@@ -1,13 +1,16 @@
 from unittest import TestCase
+from unittest.mock import patch, Mock
 import run_pipeline
 from pathlib import Path
 import psycopg2
 
 class TestPipeline(TestCase):
-    def test_get_month_of_data(self):
+    @patch("requests.get")
+    def test_get_month_of_data(self, mock_request: Mock):
+        mock_request.return_value = 200
         p = run_pipeline.Pipeline()
-        result = p.get_month_of_data('2013-01')
-        assert str(result) == '<Response [200]>'
+        p.get_month_of_data('2013-01')
+        mock_request.assert_called_once_with("https://database.lichess.org/standard/lichess_db_standard_rated_2013-01.pgn.bz2")
 
     def test_write_unzipped_pgn(self):
         p = run_pipeline.Pipeline()
@@ -67,7 +70,7 @@ class TestPipeline(TestCase):
                     host="localhost",
                     database="anthonyolund",
                     user="postgres",
-                    password="<pw>")
+                    password="Virginia0")
             
             # create a cursor
             cur = conn.cursor()
