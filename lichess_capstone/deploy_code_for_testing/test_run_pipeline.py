@@ -45,7 +45,7 @@ class TestPipeline(TestCase):
             path = Path(f'{games_folder}/{i}_{month}_games.csv')
             assert path.is_file()
         path = Path(f'{games_folder}/4_{month}_games.csv')
-        self.assertFalse(path.is_file())
+        assert path.is_file() == False
 
     def test_create_moves(self):
         p = run_pipeline.Pipeline()
@@ -58,7 +58,7 @@ class TestPipeline(TestCase):
             path = Path(f'{moves_folder}/{i}_{month}_moves.csv')
             assert path.is_file()
         path = Path(f'{moves_folder}/4_{month}_moves.csv')
-        self.assertFalse(path.is_file())
+        assert path.is_file() == False
 
     def get_db_connection(self):
         """ Connect to the PostgreSQL database server """
@@ -70,7 +70,7 @@ class TestPipeline(TestCase):
                     host="localhost",
                     database="anthonyolund",
                     user="postgres",
-                    password="Virginia0")
+                    password="<pw>")
             
             # create a cursor
             cur = conn.cursor()
