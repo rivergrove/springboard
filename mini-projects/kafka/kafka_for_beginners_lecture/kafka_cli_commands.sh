@@ -29,13 +29,65 @@ kafka-topics.sh --bootstrap-server localhost:9092 --list
 kafka-topics.sh --bootstrap-server localhost:9092 --list first_topic --describe
 # delete a topic
 kafka-topics --bootstrap-server localhost:9092 --topic second_topic --delete
-# make a topic a producer
-kafka-console-producer --broker-list localhost:9092 --topic first_topic
-# add acks property
-kafka-console-producer --broker-list localhost:9092 --topic first_topic --producer-property acks=all
-# makes a topic if it does not already exist with default parameters as defined in server.properties file
-kafka-console-producer --broker-list localhost:9092 --topic new_topic
 
-# change default number of parititions to 3
-# num.partitions=3
-subl config/server.properties
+# producers
+
+    # make a topic a producer
+    kafka-console-producer --broker-list localhost:9092 --topic first_topic
+    # add acks property
+    kafka-console-producer --broker-list localhost:9092 --topic first_topic --producer-property acks=all
+    # makes a topic if it does not already exist with default parameters as defined in server.properties file
+    kafka-console-producer --broker-list localhost:9092 --topic new_topic
+
+    # change default number of parititions to 3
+    # num.partitions=3
+    subl config/server.properties
+
+# consumers
+
+    # consumer basics
+
+        # start a consumer listening for new messages. 
+        # as new messages are written, they will appear in the terminal.
+        kafka-console-consumer --bootstrap-server localhost:9092 --topic first_topic
+        # see all messages in a topic
+        # note that order is only guarenteed by partition
+        kafka-console-consumer --bootstrap-server localhost:9092 --topic first_topic --from-beginning
+
+    # consumer group mode
+
+        # topic as part of a group
+        kafka-console-consumer --bootstrap-server localhost:9092 --topic first_topic --group my-first-app
+        # if we run the same command from another terminal window, new messages will be split
+        # between the two consumer windows because they have the same group 
+        # each consumer will read from a different partition
+        kafka-console-consumer --bootstrap-server localhost:9092 --topic first_topic --group my-first-app
+        # if we run the same command with a new group from beginning we get all messages as expected
+        kafka-console-consumer --bootstrap-server localhost:9092 --topic first_topic --group my-second-app --from-beginning
+        # but if we run the same command again, we get no results
+        # because we have the same group name and that group has already read from beginning, 
+        # the --from-beginning tag is no longer taken into account
+        kafka-console-consumer --bootstrap-server localhost:9092 --topic first_topic --group my-second-app --from-beginning
+        # if we cancel out of listening mode, write some messages from a producer on the same topic,
+        # and then run the same command for the third time, it will show those new messages, 
+        # because again, we specified the group name
+        kafka-console-consumer --bootstrap-server localhost:9092 --topic first_topic --group my-second-app --from-beginning
+        # list all consumer groups
+        kafka-consumer-groups --bootstrap-server localhost:9092 --list
+        # describe a consumer group
+        # output: GROUP TOPIC PARTITION CURRENT-OFFSET LOG-END-OFFSET LAG CONSUMER-ID HOST CLIENT-ID
+        # lag = 0 means that we have read all the data on that partition 
+        kafka-consumer-groups --bootstrap-server localhost:9092 --describe --group my-second-app
+        # how do I make my consumer group replay data?
+        # by using the --reset-offsets tag
+        # you have the option of resetting the offsets: --to-datetime, --by-period, --to-earliest, 
+        # --to-latest, --shift-by, --from-file, --to-current
+        kafka-consumer-groups --bootstrap-server localhost:9092 --group my-second-app --reset-offsets --to-earliest --execute --topic first_topic
+        # when we restart our consumer we will see all of the data
+        kafka-console-consumer --bootstrap-server localhost:9092 --topic first_topic --group my-second-app --from-beginning
+        # shift backward to n number of offsets per partition
+        kafka-consumer-groups --bootstrap-server localhost:9092 --group my-second-app --reset-offsets --shift-by -2 --execute --topic first_topic
+        # now we see 6 messages, 2 per each of the 3 partitions
+        kafka-console-consumer --bootstrap-server localhost:9092 --topic first_topic --group my-second-app
+
+
