@@ -19,5 +19,5 @@ def create_random_transaction() -> dict:
         "target": _random_account_id(),
         "amount": _random_amount(),
         # Keep it simple: it's all dollars
-        "currency": “USD”,
+        "currency": "USD",
     }
