@@ -22,11 +22,11 @@ zookeeper-server-start config/zookeeper.properties
 kafka-server-start config/server.properties
 
 # create a topic
-kafka-topics.sh --bootstrap-server localhost:9092 --topic first_topic --create --partitions 3 --replication-factor 1
+kafka-topics --bootstrap-server localhost:9092 --topic first_topic --create --partitions 3 --replication-factor 1
 # list topics 
-kafka-topics.sh --bootstrap-server localhost:9092 --list
+kafka-topics --bootstrap-server localhost:9092 --list
 # describe a topic
-kafka-topics.sh --bootstrap-server localhost:9092 --list first_topic --describe
+kafka-topics --bootstrap-server localhost:9092 first_topic --describe
 # delete a topic
 kafka-topics --bootstrap-server localhost:9092 --topic second_topic --delete
 
@@ -90,4 +90,74 @@ kafka-topics --bootstrap-server localhost:9092 --topic second_topic --delete
         # now we see 6 messages, 2 per each of the 3 partitions
         kafka-console-consumer --bootstrap-server localhost:9092 --topic first_topic --group my-second-app
 
+# twitter
+
+    # create kafka topic before running java script
+    kafka-topics --bootstrap-server localhost:9092 --create --topic twitter_tweets --partitions 6 --replication-factor 1
+    # launch a kafka console consumer
+    kafka-console-consumer --bootstrap-server localhost:9092 --topic twitter_tweets
+
+# topic configuration
+
+    # create topic
+    kafka-topics --bootstrap-server localhost:9092 --topic configured_topic --create --partitions 3 --replication-factor 1
+    # describe configuration
+    kafka-configs --bootstrap-server localhost:9092 --entity-type topics --entity-name configured_topic --describe
+    # change min.insync.replicas to 2
+    kafka-configs --bootstrap-server localhost:9092 --entity-type topics --entity-name configured_topic --add-config min.insync.replicas=2 --alter
+    # delete configuration
+    kafka-configs --bootstrap-server localhost:9092 --entity-type topics --entity-name configured_topic --delete-config min.insync.replicas --alter
+
+# log compaction
+
+    # cleanup.policy=compact to enable log compaction, min.cleanable.dirty.ratio=0.001 to ensure log compaction happens all the time, segment.ms=5000 to make compaction happen every 5 seconds
+    kafka-topics --bootstrap-server localhost:9092 --create --topic employee-salary --partitions 1 --replication-factor 1 --config cleanup.policy=compact --config min.cleanable.dirty.ratio=0.001 --config segment.ms=5000
+    # describe newly created topic
+    kafka-topics --bootstrap-server localhost:9092 --describe --topic employee-salary
+    # start console consumer
+    kafka-console-consumer --bootstrap-server localhost:9092 --topic employee-salary --from-beginning --property print.key=true --property key.separator=,
+    # create producer
+    kafka-console-producer --broker-list localhost:9092 --topic employee-salary --property parse.key=true --property key.separator=,
+
+# min.insync.replicas
+
+    # create a topic
+    kafka-topics --bootstrap-server localhost:9092 --topic highly-durable --create --partitions 3 --replication-factor 1
+    # update config
+    kafka-configs --bootstrap-server localhost:9092 --entity-type topics --entity-name highly-durable --alter --add-config min.insync.replicas=2
+
+# run multiple brokers
+
+    # go to config directory
+    cd config
+    # create 3 more brokers
+    cp server.properties server0.properties
+    cp server.properties server1.properties
+    cp server.properties server2.properties
+    # edit new brokers
+        # edit broker_id=1
+        # edit log.dirs=/Users/anthonyolund/kafka_2.13-3.1.0/data/kafka1
+        # uncomment and edit listeners=PLAINTEXT://:9093
+        # do the same steps above with server2
+        subl server1.properties
+        subl server2.properties
+    # make kafka1 and kafka2 directories
+    cd /Users/anthonyolund/kafka_2.13-3.1.0/data/
+    mkdir kafka1
+    mkdir kafka2
+    # run all brokers in seperate windows after starting zookeeper
+    kafka-server-start config/server0.properties
+    kafka-server-start config/server1.properties
+    kafka-server-start config/server2.properties
+
+    # create topic
+    kafka-topics --bootstrap-server localhost:9092 --topic many-reps --create --partitions 6 --replication-factor 3
+    # describe. We see that the leader is on different brokers
+    kafka-topics --bootstrap-server localhost:9092 --topic many-reps --describe
+    # make producer on all 3 brokers. Type messages.
+    kafka-console-producer --broker-list localhost:9092,localhost:9093,localhost:9094 --topic many-reps
+    # same producer but only to 1 broker. Type messages.
+    kafka-console-producer --broker-list localhost:9094 --topic many-reps
+    # connect to consumer and read from beginning
+    kafka-console-consumer --bootstrap-server localhost:9093 --topic many-reps --from-beginning
 
