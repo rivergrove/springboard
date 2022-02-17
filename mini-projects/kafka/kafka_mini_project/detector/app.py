@@ -16,14 +16,14 @@ if __name__ == "__main__":
     consumer = KafkaConsumer(
         TRANSACTIONS_TOPIC,
         bootstrap_servers=KAFKA_BROKER_URL,
-        value_deserializer=lambda value: json.loads(value),
+        value_deserializer=lambda value: json.loads(value)
     )
     producer = KafkaProducer(
         bootstrap_servers=KAFKA_BROKER_URL,
-        value_serializer=lambda value: json.dumps(value).encode(),
+        value_serializer=lambda value: json.dumps(value).encode()
     )
     for message in consumer:
         transaction: dict = message.value
         topic = FRAUD_TOPIC if is_suspicious(transaction) else LEGIT_TOPIC
         producer.send(topic, value=transaction)
-        print(topic, transaction) # DEBUG
+        print(topic, transaction)  # DEBUG

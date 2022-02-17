@@ -6,7 +6,7 @@ services:
     environment:
       ZOOKEEPER_CLIENT_PORT: 2181
       ZOOKEEPER_TICK_TIME: 2000
-
+      
   broker:
     image: confluentinc/cp-kafka:latest
     depends_on:
@@ -17,7 +17,7 @@ services:
       KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://broker:9092
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
 
-networks:
+networks: 
   default:
     external:
       name: kafka-network

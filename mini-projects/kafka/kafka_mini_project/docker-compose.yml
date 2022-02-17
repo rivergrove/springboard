@@ -1,20 +1,23 @@
-version: "3"
+version: '3'
 
 services:
   generator:
-    build: ./generator
+    build:
+      context: ./generator
     environment:
-      KAFKA_BROKER_URL: broker:9092
+      KAFKA_BROKER_URL: 'broker:9092'
       TRANSACTIONS_TOPIC: queueing.transactions
-      TRANSACTIONS_PER_SECOND: 1000
+      TRANSACTIONS_PER_SECOND: 1
+
   detector:
-    build: ./detector
+    build:
+      context: ./detector
     environment:
-      KAFKA_BROKER_URL: broker:9092
+      KAFKA_BROKER_URL: 'broker:9092'
       TRANSACTIONS_TOPIC: queueing.transactions
       LEGIT_TOPIC: streaming.transactions.legit
       FRAUD_TOPIC: streaming.transactions.fraud
-
+      
 networks:
   default:
     external:
