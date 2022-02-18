@@ -4,16 +4,16 @@ from sqlalchemy import Column, Integer, String, Float
 import os
 
 app = Flask(__name__)
-# Path for the running application. Put db here.
-basedir = os.path.abspath(os.path.dirname(__file__))
-app.config['SQLAlCHEMY_DATABASE_URI'] = f'sqlite:///{os.path.join(basedir, "planets.db")}'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///planets.db'
 
 db = SQLAlchemy(app)
 
 @app.cli.command('db_create')
 def db_create():
     db.create_all()
+    db.session.commit()
     print('Database created!')
+    print(f'current tables: {db.engine.table_names()}')
 
 @app.cli.command('db_drop')
 def db_drop():
@@ -52,8 +52,11 @@ def db_seed():
                      last_name = 'Herschel',
                      email = 'test@test.com',
                      password = 'admin')
+
+    db.session.add(test_user)
     db.session.commit()
     print('Database seeded!')
+    print(f'current tables: {db.engine.table_names()}')
 
 @app.route('/')
 def hello_world():
