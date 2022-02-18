@@ -4,12 +4,15 @@ from sqlalchemy import Column, Integer, String, Float
 import json
 import os
 from flask_marshmallow import Marshmallow
+from flask_jwt_extended import JWTManager, jwt_required, create_access_token
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///planets.db'
+app.config['JWT_SECRET_KEY'] = 'super-secret' # change this
 
 db = SQLAlchemy(app)
 ma = Marshmallow(app) # needed to deserialize objects before passing them as json
+jwt = JWTManager(app) # initialize jwt manager
 
 @app.cli.command('db_create')
 def db_create():
@@ -110,6 +113,22 @@ def register():
         db.session.add(user)
         db.session.commit()
         return jsonify(message="user created successfully"), 201
+
+@app.route('/login', methods=['POST'])
+def login():
+    if request.is_json:
+        email = request.json['email']
+        password = request.json['password']
+    else:
+        email = request.form['email']
+        password = request.form['password']
+
+    test = User.query.filter_by(email=email, password=password).first()
+    if test:
+        access_token = create_access_token(identity=email)
+        return jsonify(message="Login succeeded", access_token=access_token)
+    else:
+        jsonify(message='password does not exist'), 401
 
 # Database models. 
 # We could split this out into different files using the modular form of python.
