@@ -6,6 +6,9 @@ import os
 app = Flask(__name__)
 # Path for the running application. Put db here.
 basedir = os.path.abspath(os.path.dirname(__file__))
+app.config['SQLAlCHEMY_DATABASE_URI'] = f'sqlite:///{os.path.join(basedir, "planets.db")}'
+
+db = SQLAlchemy(app)
 
 @app.route('/')
 def hello_world():
@@ -36,6 +39,27 @@ def url_variables(name: str, age: int):
         return jsonify(message=f"Sorry {name}, you are not old enough."), 401
     else:
         return jsonify(message=f"Welcome {name}!")
+
+# Database models. 
+# We could split this out into different files using the modular form of python.
+class User(db.Model):
+    __tablename__ = 'users'
+    id = Column(Integer, primary_key=True)
+    first_name = Column(String)
+    last_name = Column(String)
+    email = Column(String, unique=True)
+    password = Column(String)
+
+class Planet(db.Model):
+    __tablename__ = 'planets'
+    planet_id = Column(Integer, primary_key=True)
+    planet_name = Column(String)
+    planet_type = Column(String)
+    # we could split this out into a stars table if this were more comprehensive
+    home_star = Column(String)
+    mass = Column(Float)
+    radius = Column(Float)
+    distance = Column(Float)
 
 
 if __name__ == '__main__':
