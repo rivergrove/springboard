@@ -52,6 +52,8 @@ def db_seed():
                      last_name = 'Herschel',
                      email = 'test@test.com',
                      password = 'admin')
+    db.session.commit()
+    print('Database seeded!')
 
 @app.route('/')
 def hello_world():
