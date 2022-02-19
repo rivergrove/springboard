@@ -5,14 +5,19 @@ import json
 import os
 from flask_marshmallow import Marshmallow
 from flask_jwt_extended import JWTManager, jwt_required, create_access_token
+from flask_mail import Mail, Message
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///planets.db'
 app.config['JWT_SECRET_KEY'] = 'super-secret' # change this
+app.config['MAIL_SERVER'] = 'smtp.mailtrap.io'
+app.config['MAIL_USERNAME'] = 'f24df8c688baf6' # use an environment variable like os.environ['MAIL_USERNAME']
+app.config['MAIL_PASSWORD'] = 'f8d9f0b5ea958a' # use an environment variable
 
 db = SQLAlchemy(app)
 ma = Marshmallow(app) # needed to deserialize objects before passing them as json
 jwt = JWTManager(app) # initialize jwt manager
+mail = Mail(app)
 
 @app.cli.command('db_create')
 def db_create():
@@ -129,6 +134,19 @@ def login():
         return jsonify(message="Login succeeded", access_token=access_token)
     else:
         jsonify(message='password does not exist'), 401
+
+@app.route('/retrieve_password/<string:email>', methods=['GET'])
+def retrieve_password(email: str):
+    user = User.query.filter_by(email=email).first()
+    if user:
+        msg = Message(f"your planetary api password is {user.password}"
+                        , sender='admin@planetary-api.com' 
+                        , recipients=[email])
+        mail.send(msg)
+        return jsonify(message=f"password sent to {email}")
+    else:
+        return jsonify(message='That email does not exist')
+
 
 # Database models. 
 # We could split this out into different files using the modular form of python.
